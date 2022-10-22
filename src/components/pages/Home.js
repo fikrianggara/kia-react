@@ -79,7 +79,7 @@ const Home = ({ data }) => {
             <div className="w-full aspect-square rounded-[20px] bg-amber-400"></div>
             <p className="text-center text-xs">Find Hospital Bed</p>
           </div>
-          <Link to="/kehamilan/menu">
+          <Link to="/monitoring/kehamilan/menu">
             <div className="space-y-2">
               <div className="w-full aspect-square rounded-[20px] bg-sky-600"></div>
               <p className="text-center text-xs">Pregnancy Monitoring</p>

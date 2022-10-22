@@ -21,15 +21,23 @@ function App() {
         <div className="bg-gray-100 min-h-screen">
           <Routes>
             <Route path="/" index element={<Home data={user} />}></Route>
-            <Route path="/kehamilan/:id" exact element={<Kehamilan />}></Route>
-            <Route path="/kehamilan/menu" exact element={<Menu />}></Route>
             <Route
-              path="/kehamilan-dashboard/:id"
+              path="/monitoring/kehamilan/:id"
+              exact
+              element={<Kehamilan data={user} />}
+            ></Route>
+            <Route
+              path="/monitoring/kehamilan/menu"
+              exact
+              element={<Menu data={user} />}
+            ></Route>
+            <Route
+              path="/monitoring/kehamilan-dashboard/:id"
               exact
               element={<DashboardKehamilan />}
             ></Route>
             <Route
-              path="/kehamilan/detail/:id"
+              path="/monitoring/kehamilan/detail/:id"
               exact
               element={<DetailKehamilan />}
             ></Route>
