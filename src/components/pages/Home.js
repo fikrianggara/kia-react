@@ -13,6 +13,7 @@ const Home = ({ data }) => {
 
   return (
     <div className="min-h-screen relative">
+      {/* user info */}
       <header className="h-fit bg-white p-4 pb-8">
         <nav>
           <ul className="flex justify-between">
@@ -31,8 +32,10 @@ const Home = ({ data }) => {
             </li>
           </ul>
         </nav>
-        <div className="shadow rounded-lg mt-3">
-          <div className="py-2 px-4 bg-sky-500 rounded-t-lg text-white text-lg">
+        {/* end of user info */}
+        {/* scanning vaccine certificate section */}
+        <div className="shadow rounded-xl mt-3">
+          <div className="py-2 px-4 bg-sky-500 rounded-t-xl text-white text-lg">
             <h2 className="font-medium ">Entering Public Place ? </h2>
             <h3>Stay alert to stay safe</h3>
           </div>
@@ -47,7 +50,10 @@ const Home = ({ data }) => {
             </button>
           </div>
         </div>
+        {/* end of vaccine certificate scan */}
       </header>
+
+      {/* primary feature section */}
       <main className="mt-4 bg-white h-fit space-y-10">
         <section className="grid grid-cols-4 gap-6 m-auto h-fit p-4 ">
           <div className="space-y-2">
@@ -112,6 +118,7 @@ const Home = ({ data }) => {
           </div>
         </section>
       </main>
+      {/* end of primary feature section */}
       <div className="fixed bottom-10 right-5 bg-white rounded-full p-3 shadow text-blue-400">
         <HelpOutlineOutlined fontSize="large"></HelpOutlineOutlined>
       </div>
