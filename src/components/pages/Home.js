@@ -87,7 +87,7 @@ const Home = ({ data }) => {
           </div>
           <Link to="/monitoring/kehamilan/menu">
             <div className="space-y-2">
-              <div className="w-full aspect-square rounded-[20px] bg-sky-600"></div>
+              <div className="w-full aspect-square rounded-[20px] bg-sky-600 animate-pulse"></div>
               <p className="text-center text-xs">Pregnancy Monitoring</p>
             </div>
           </Link>
