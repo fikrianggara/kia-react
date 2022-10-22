@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {user ? (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-100 min-h-screen w-[400px] m-auto">
           <Routes>
             <Route path="/" index element={<Home data={user} />}></Route>
             <Route
