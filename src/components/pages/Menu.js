@@ -12,7 +12,7 @@ const Menu = ({ data }) => {
   console.log(user.id);
   return (
     <div className="relative min-h-screen">
-      <header className="text-center p-4 bg-white space-y-8 pb-8">
+      <header className="text-center p-4 bg-white space-y-8 pb-4">
         <h1 className="text-black text-2xl font-bold">Monitoring Kehamilan</h1>
         <h2 className="text-sky-600 font-medium">
           kami membantu anda selama periode kehamilan agar blablabalb
