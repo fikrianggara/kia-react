@@ -1,0 +1,50 @@
+[
+  {
+    "id": "123",
+    "id_ibu": "001",
+    "kehamilan_ke": 1,
+    "hari_pertama_haid_terakhir": "2022-07-01",
+    "estimasi_tanggal_kelahiran": "2023-04-10",
+    "status": "Masa Kehamilan",
+    "posyandu_utama": {
+      "nama": "Posyandu Anak Sehat",
+      "alamat": "Jalan Pulau Seribu, Jakarta Timur, Jakarta"
+    },
+    "riwayat_kesehatan": {
+      "penyakit_pribadi": null,
+      "penyakit_keluarga": ["Jantung", "Diabetes"],
+      "perilaku_beresiko": null
+    },
+    "status_imunisasi_t": null,
+    "pemeriksaan_khusus_ibu": {
+      "vulva": "Normal",
+      "uretra": "Normal",
+      "vagina": "Normal",
+      "fluksus": "Normal",
+      "porsio": "Normal"
+    },
+    "jenis_kelamin_janin": null,
+    "pemeriksaan_terakhir": {
+      "id_pemeriksaan": "456",
+      "tanggal_pemeriksaan": "2022-08-01 08:00:00",
+      "tempat_pemeriksaan": "Posyandu Anak Sehat",
+      "kesimpulan": "Kondisi Ibu dan Janin sehat",
+      "rekomendasi": "Perbanyak makan sayur dan jangan lupa istirahat yang cukup",
+      "janin": {
+        "kondisi": "Baik",
+        "berat": {
+          "nilai": 22,
+          "satuan": "gram"
+        }
+      },
+      "ibu": {
+        "kondisi": "Baik",
+        "berat": {
+          "nilai": 52,
+          "satuan": "kg"
+        },
+        "imt": "Normal"
+      }
+    }
+  }
+]

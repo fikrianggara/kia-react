@@ -1,0 +1,19 @@
+[
+  {
+    "id": "001",
+    "nama": "Angela Meilani",
+    "nik": "37129481001283128",
+    "no_hp": "081217391377",
+    "email": "angela.meilani@gmail.com",
+    "alamat": "Jalan Mataram, Jakarta Timur, Jakarta",
+    "tanggal_lahir": "1993-12-10",
+    "tempat_lahir": "Jakarta Selatan, Jakarta",
+    "pendidikan": "S1",
+    "pekerjaan": "Data Analyst",
+    "puskesmas_domisili": "Puskesmas Jakarta Timur",
+    "no_register_kohort": "221091821",
+    "no_jkn": "123829173101",
+    "faskes_tingkat_1": "Puskesmas Jakarta Timur",
+    "faskes_rujukan": "Rumah Sakit Jakarta Timur"
+  }
+]
