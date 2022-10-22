@@ -21,7 +21,9 @@ const Home = ({ data }) => {
                 <AccountCircleOutlined fontSize="large"></AccountCircleOutlined>
               </div>
               <div>
-                <span className="font-medium">Hi, {user?.nama}</span>
+                <span className="font-medium">
+                  Hi, <span className="underline">{user?.nama}</span>
+                </span>
               </div>
             </li>
             <li>
