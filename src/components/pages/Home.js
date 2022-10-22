@@ -6,12 +6,14 @@ import {
   CropFreeOutlined,
   HelpOutlineOutlined,
 } from "@mui/icons-material";
+
+import { Link } from "react-router-dom";
 const Home = ({ data }) => {
   const user = data[0] ? data[0] : null;
 
   return (
     <div className="min-h-screen relative">
-      <header className="h-fit bg-white p-4">
+      <header className="h-fit bg-white p-4 pb-8">
         <nav>
           <ul className="flex justify-between">
             <li className="flex items-center space-x-4">
@@ -48,7 +50,7 @@ const Home = ({ data }) => {
         <section className="grid grid-cols-4 gap-6 m-auto h-fit p-4 ">
           <div className="space-y-2">
             <div className="w-full aspect-square rounded-[20px] bg-amber-400"></div>
-            <p className="text-center text-xs">vaccine and immunization</p>
+            <p className="text-center text-xs">Vaccine and Immunization</p>
           </div>
           <div className="space-y-2">
             <div className="w-full aspect-square rounded-[20px] bg-red-500"></div>
@@ -75,32 +77,35 @@ const Home = ({ data }) => {
             <div className="w-full aspect-square rounded-[20px] bg-amber-400"></div>
             <p className="text-center text-xs">Find Hospital Bed</p>
           </div>
-          <div className="space-y-2">
-            <div className="w-full aspect-square rounded-[20px] bg-sky-600"></div>
-            <p className="text-center text-xs">Pregnancy Monitoring</p>
-          </div>
+          <Link to="/kehamilan/menu">
+            <div className="space-y-2">
+              <div className="w-full aspect-square rounded-[20px] bg-sky-600"></div>
+              <p className="text-center text-xs">Pregnancy Monitoring</p>
+            </div>
+          </Link>
         </section>
         <section className="space-y-4">
           <h1 className="px-4 text-xl text-black">Health Information</h1>
           <div className="flex overflow-x-scroll space-x-4 text-transparent p-4 pb-6">
-            <div className="w-64 h-36 bg-sky-700 rounded-lg">
-              vfdsavfdsavfdsavfdsavfdsavfdsafdsavfdsavf
+            <div className="w-64 h-36 bg-sky-700 rounded-lg text-white font-bold p-4 text-center">
+              <h1 className="w-64 text-start text-lg pl-4">
+                Pandemi Belum Selesai
+              </h1>
+              <h2 className="text-sm mt-2">
+                Tetap Disiplin Prokes di Ruang Publik
+              </h2>
+              <p>#LawanCOVID19</p>
             </div>
-
-            <div className="w-64 h-36 bg-amber-400 rounded-lg">
-              vfdsavfdsavfdsavfdsavfdsavfdsafdsavfdsavf
-            </div>
-
-            <div className="w-64 h-36 bg-green-700 rounded-lg">
-              vfdsavfdsavfdsavfdsavfdsavfdsafdsavfdsavf
-            </div>
-
-            <div className="w-64 h-36 bg-sky-600 rounded-lg">
-              vfdsavfdsavfdsavfdsavfdsavfdsafdsavfdsavf
-            </div>
-
-            <div className="w-64 h-36 bg-sky-600 rounded-lg">
-              vfdsavfdsavfdsavfdsavfdsavfdsafdsavfdsavf
+            <div className="w-64 h-36 bg-amber-400 rounded-lg text-white font-bold p-4 text-center">
+              <h1 className="w-64 text-start text-lg pl-4 text-red-600">
+                Informasi Kebijakan
+              </h1>
+              <h2 className="text-sm mt-2">
+                Antisipasi Cegah Gangguan Ginjal Anak
+              </h2>
+              <button className="bg-green-700 rounded-full text-xs px-2 py-1 self-start mt-2">
+                Selengkapnya
+              </button>
             </div>
           </div>
         </section>

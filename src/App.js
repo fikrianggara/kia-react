@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" index element={<Home data={user} />}></Route>
             <Route path="/kehamilan/:id" exact element={<Kehamilan />}></Route>
-            <Route path="/menu" exact element={<Menu />}></Route>
+            <Route path="/kehamilan/menu" exact element={<Menu />}></Route>
             <Route
               path="/kehamilan-dashboard/:id"
               exact
