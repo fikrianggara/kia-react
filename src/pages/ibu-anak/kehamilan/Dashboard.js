@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getPregnancyDataByUserId } from "../../api/data";
+import { getPregnancyDataByUserId } from "../../../api/data";
 import {
   AccountCircle,
   MonitorHeart,
@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import moment from "moment-with-locales-es6";
 moment.locale("id");
 
-const Kehamilan = ({ data }) => {
+export const Dashboard = ({ data }) => {
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
   const [pregnancyData, setPregnancyData] = useState(null);
@@ -118,5 +118,3 @@ const Kehamilan = ({ data }) => {
     </>
   );
 };
-
-export default Kehamilan;
