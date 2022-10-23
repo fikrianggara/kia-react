@@ -8,7 +8,6 @@ import {
   AirlineSeatReclineExtraOutlined,
 } from "@mui/icons-material";
 
-
 export const MenuIbuAnak = ({ data }) => {
   const user = data[0] ? data[0] : null;
   return (
@@ -30,18 +29,27 @@ export const MenuIbuAnak = ({ data }) => {
       <main className="mt-4 bg-white h-fit space-y-10 flex">
         <section className="grid grid-cols-3 gap-6 m-auto h-fit p-4 ">
           <Link to={`/ibu-anak/kehamilan/${user?.id ? user.id : "menu"}`}>
-            <MenuItem title="Kehamilan" className="bg-amber-400">
-              <PregnantWomanOutlined className="w-8 h-8 md:w-16 md:h-16" />
+            <MenuItem title="Kehamilan" className="bg-amber-400 animate-pulse">
+              <PregnantWomanOutlined
+                fontSize="large"
+                className="w-8 h-8 md:w-16 md:h-16"
+              />
             </MenuItem>
           </Link>
           <Link to="/ibu-anak">
             <MenuItem title="Persalinan" className="bg-red-500">
-              <AirlineSeatReclineExtraOutlined className="w-8 h-8 md:w-16 md:h-16" />
+              <AirlineSeatReclineExtraOutlined
+                fontSize="large"
+                className="w-8 h-8 md:w-16 md:h-16"
+              />
             </MenuItem>
           </Link>
           <Link to="/ibu-anak">
             <MenuItem title="Pasca Kelahiran" className="bg-sky-600">
-              <BabyChangingStationOutlined className="w-8 h-8 md:w-16 md:h-16" />
+              <BabyChangingStationOutlined
+                fontSize="large"
+                className="w-8 h-8 md:w-16 md:h-16"
+              />
             </MenuItem>
           </Link>
         </section>
@@ -52,7 +60,6 @@ export const MenuIbuAnak = ({ data }) => {
           <p>Berikan Saran</p>
         </a>
       </footer>
-
     </div>
   );
 };
