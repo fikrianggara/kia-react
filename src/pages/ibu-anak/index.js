@@ -8,6 +8,11 @@ import {
   AirlineSeatReclineExtraOutlined,
 } from "@mui/icons-material";
 
+import IbuAnak1 from "../../assets/ibu-anak/1.png"
+import IbuAnak2 from "../../assets/ibu-anak/2.png"
+import IbuAnak3 from "../../assets/ibu-anak/3.png"
+import IbuAnak4 from "../../assets/ibu-anak/4.png"
+
 export const MenuIbuAnak = ({ data }) => {
   const user = data[0] ? data[0] : null;
   return (
@@ -57,7 +62,25 @@ export const MenuIbuAnak = ({ data }) => {
         </section>
       </main>
 
-      <footer className="absolute bottom-12 inset-x-0 mb-12 text-center underline text-black">
+      <section className="space-y-4 bg-white py-6 mt-2">
+        <h1 className="px-4 text-xl text-black">Informasi Ibu Hamil</h1>
+        <div className="space-y-4 text-transparent p-4 pb-6 flex flex-col">
+          <div className="w-full border shadow-sm rounded-lg text-white font-bold text-center">
+            <img src={IbuAnak1} alt="Ilustrasi" />
+          </div>
+          <div className="w-full border shadow-sm rounded-lg text-white font-bold  text-center">
+            <img src={IbuAnak2} alt="Ilustrasi" />
+          </div>
+          <div className="w-full border shadow-sm rounded-lg text-white font-bold  text-center">
+            <img src={IbuAnak3} alt="Ilustrasi" />
+          </div>
+          <div className="w-full border shadow-sm rounded-lg text-white font-bold  text-center">
+            <img src={IbuAnak4} alt="Ilustrasi" />
+          </div>
+        </div>
+      </section>
+
+      <footer className="pb-16 text-center underline text-black bg-white">
         <a href="mailto: fikriseptriananggara@gmail.com">
           <p>Berikan Saran</p>
         </a>
