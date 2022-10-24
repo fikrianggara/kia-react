@@ -5,7 +5,7 @@ import { MenuIbuAnak } from "./pages/ibu-anak";
 import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
-
+import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
 import "./App.css";
 
 function App() {
@@ -28,6 +28,11 @@ function App() {
           path="/ibu-anak/kehamilan/:id"
           exact
           element={<KehamilanDashboard data={user} />}
+        />
+        <Route
+          path="/ibu-anak/kehamilan/detail/:id"
+          exact
+          element={<Detail data={user} />}
         />
 
         <Route path="*" element={<NotFound />} />

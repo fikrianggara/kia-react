@@ -22,3 +22,12 @@ export const getCheckUpListDataByPatientId = async (id, cb) => {
   );
   cb(patientCheckupList);
 };
+
+export const getCheckUpListDataById = async (id, cb) => {
+  const response = await fetch("/pemeriksaan.json");
+  const checkupList = await response.json();
+  const patientCheckupData = await checkupList.find(
+    (pregnancy) => pregnancy.id === id
+  );
+  cb(patientCheckupData);
+};

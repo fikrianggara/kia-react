@@ -12,6 +12,7 @@ import {
   SecurityUpdateGoodOutlined,
   LocationOn,
   CalendarToday,
+  Equalizer,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import moment from "moment-with-locales-es6";
@@ -87,7 +88,7 @@ export const Dashboard = ({ data }) => {
                 <div className="bg-gray-50 h-20 w-full rounded-lg flex m-auto">
                   <div className="text-green-400 ring-4 h-16 w-16 bg-gray-50 ring-green-500 rounded-full items-center flex flex-col justify-center m-auto">
                     <span className="self-center text-green-500 font-medium text-sm">
-                      Bayi
+                      Janin
                     </span>
                     <span className="text-xs">Sehat</span>
                   </div>
@@ -124,22 +125,30 @@ export const Dashboard = ({ data }) => {
                   </h3>
                 </div>
               </div>
+              <div className="flex justify-between">
+                <Link
+                  to="/ibu-anak"
+                  className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
+                >
+                  <ArrowBackOutlined></ArrowBackOutlined>
+                  <span>Kembali</span>
+                </Link>
+                <div className="flex justify-end space-x-2">
+                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                    <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined>
+                    Selengkapnya
+                  </button>
+                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg px-3">
+                    <Equalizer></Equalizer>
+                    Statistik Ibu
+                  </button>
+                </div>
+              </div>
+
               {/* patient condition overview end */}
               {/* back and update data button */}
               <div>
-                <div className="flex justify-between">
-                  <Link
-                    to="/ibu-anak"
-                    className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
-                  >
-                    <ArrowBackOutlined></ArrowBackOutlined>
-                    <span>Kembali</span>
-                  </Link>
-                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-full p-1 px-3">
-                    <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined>
-                    Perbarui Data Mandiri
-                  </button>
-                </div>
+                <div className="flex justify-between"></div>
               </div>
               {/* back and update data button end */}
             </div>
@@ -294,9 +303,12 @@ export const Dashboard = ({ data }) => {
                       </p>
                     </div>
                     <div className="flex justify-between">
-                      <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
-                        Selengkapnya
-                      </button>
+                      <Link to={`/ibu-anak/kehamilan/detail/${checkup.id}`}>
+                        <span className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                          Selengkapnya
+                        </span>
+                      </Link>
+
                       <div className="text-sky-800 text-xs">
                         <CalendarToday fontSize="xSmall"></CalendarToday>{" "}
                         {showFormattedDate(checkup.tanggal_pemeriksaan)}
