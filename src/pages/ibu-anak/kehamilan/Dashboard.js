@@ -118,9 +118,9 @@ export const Dashboard = ({ data }) => {
                   </h3>
                 </div>
                 <div className="h-20 p-2 bg-gray-50 w-full rounded-lg flex flex-col text-xs items-center justify-center m-auto text-center">
-                  <h2 className="text-black text-xs ">Estimasi Kelahiran</h2>
+                  <h2 className="text-black text-xs ">Check-up Berikutnya</h2>
                   <h3 className="text-sky-400 font-medium">
-                    {jarakHinggaKelahiran}
+                    {showFormattedDate(new Date())}
                   </h3>
                 </div>
               </div>
