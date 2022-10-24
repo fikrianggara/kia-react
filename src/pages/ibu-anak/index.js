@@ -19,10 +19,12 @@ export const MenuIbuAnak = ({ data }) => {
           kami membantu anda selama periode kehamilan agar kondisi janin dan ibu
           selalu sehat
         </h2>
-        <Link to="/">
-          <div className="w-12 h-12 p-2 rounded bg-gray-200 flex items-center text-sky-700 mt-4">
-            <ArrowBackOutlined fontSize="large"></ArrowBackOutlined>
-          </div>
+        <Link
+          to="/"
+          className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg text-sky-700"
+        >
+          <ArrowBackOutlined></ArrowBackOutlined>
+          <span>Kembali</span>
         </Link>
       </header>
 
