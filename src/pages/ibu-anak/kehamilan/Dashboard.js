@@ -66,7 +66,7 @@ export const Dashboard = ({ data }) => {
         <div className="space-y-4">
           {/* patient overview */}
           <header className="bg-white pb-4 h-fit">
-            <div className="bg-sky-600 p-4 text-white rounded-b-2xl space-y-2">
+            <div className="bg-sky-600 p-4 text-white pb-2 rounded-b-2xl space-y-2">
               <nav className="flex items-center ">
                 <div className="flex space-x-2 items-center ">
                   <div className=" space-y-1 ">
@@ -135,7 +135,7 @@ export const Dashboard = ({ data }) => {
                     <ArrowBackOutlined></ArrowBackOutlined>
                     <span>Kembali</span>
                   </Link>
-                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-full p-1 px-3">
                     <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined>
                     Perbarui Data Mandiri
                   </button>
@@ -257,6 +257,7 @@ export const Dashboard = ({ data }) => {
           {/* main */}
           <main className="p-4 bg-white">
             {/* checkup card component list start */}
+            <h1 className="text-black font-medium text-lg p-4">Pemeriksaan</h1>
             <ul className="space-y-3">
               {checkupListData.map((checkup) => (
                 <li key={checkup.id}>
@@ -264,7 +265,7 @@ export const Dashboard = ({ data }) => {
                     <div className="flex items-center space-x-2">
                       <MonitorHeart className="text-sky-800"></MonitorHeart>
                       <a href="#">
-                        <h3 className="text-2xl font-semibold tracking-tight  dark:text-white text-sky-800">
+                        <h3 className="text-lg font-semibold tracking-tight  dark:text-white text-sky-800">
                           Pemeriksaan{" "}
                           {checkup.tipe_pemeriksaan == "biasa"
                             ? "Rutin"
@@ -283,7 +284,7 @@ export const Dashboard = ({ data }) => {
                         {checkup.pemeriksa.nama}
                       </span>
                     </div>
-                    <div className="text-sm">
+                    <div className="text-sm ">
                       <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
                         Berdasarkan pemeriksaan, diketahui bahwa{" "}
                         {checkup.kesimpulan}.{" "}
@@ -296,8 +297,10 @@ export const Dashboard = ({ data }) => {
                       <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
                         Selengkapnya
                       </button>
-                      <CalendarToday></CalendarToday>
-                      {showFormattedDate(checkup.tanggal_pemeriksaan)}
+                      <div className="text-sky-800 text-xs">
+                        <CalendarToday fontSize="xSmall"></CalendarToday>{" "}
+                        {showFormattedDate(checkup.tanggal_pemeriksaan)}
+                      </div>
                     </div>
                   </div>
                 </li>
