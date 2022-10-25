@@ -15,6 +15,7 @@ import {
   Equalizer,
   Warning,
 } from "@mui/icons-material";
+import { ShareData } from "../../../components/ibu-anak/ShareData";
 
 moment.locale("id");
 
@@ -83,8 +84,9 @@ export const Dashboard = ({ data }) => {
                     <h1>{user.alamat}</h1>
                   </div>
                 </div>
-                <div>
+                <div className="flex space-x-1">
                   <PregnancySelection preganciesData={[{ kehamilan_id: 1, kehamilan_ke: 1 }, { kehamilan_id: 2, kehamilan_ke: 2 }]} />
+                  <ShareData />
                 </div>
               </div>
             </div>
