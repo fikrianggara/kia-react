@@ -34,7 +34,7 @@ export const getCheckUpListDataByPatientId = async (id, cb) => {
   const response = await fetch("/pemeriksaan.json");
   const checkupList = await response.json();
   const patientCheckupList = await checkupList.filter(
-    (pregnancy) => pregnancy.id === id
+    (pregnancy) => pregnancy.id_ibu === id
   );
   cb(patientCheckupList);
 };
