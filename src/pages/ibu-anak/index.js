@@ -8,10 +8,10 @@ import {
   AirlineSeatReclineExtraOutlined,
 } from "@mui/icons-material";
 
-import IbuAnak1 from "../../assets/ibu-anak/1.png"
-import IbuAnak2 from "../../assets/ibu-anak/2.png"
-import IbuAnak3 from "../../assets/ibu-anak/3.png"
-import IbuAnak4 from "../../assets/ibu-anak/4.png"
+import IbuAnak1 from "../../assets/ibu-anak/1.png";
+import IbuAnak2 from "../../assets/ibu-anak/2.png";
+import IbuAnak3 from "../../assets/ibu-anak/3.png";
+import IbuAnak4 from "../../assets/ibu-anak/4.png";
 import { InfoCard } from "../../components/ibu-anak/InfoCard";
 
 export const MenuIbuAnak = ({ data }) => {
@@ -66,22 +66,34 @@ export const MenuIbuAnak = ({ data }) => {
       <section className="space-y-4 bg-white py-6 mt-2">
         <h1 className="px-4 text-xl text-black">Informasi Kehamilan</h1>
         <div className="gap-5 text-transparent p-4 flex flex-col align-middle">
-          <InfoCard title="Periksa Kehamilan" description="Pastikan ibu hamil mendapatkan pelayanan pemeriksaan kehamilan y">
+          <InfoCard
+            title="Periksa Kehamilan"
+            description="Pastikan ibu hamil mendapatkan pelayanan pemeriksaan kehamilan y"
+          >
             <div className="w-full min-w-[400px] border shadow-sm rounded-lg text-white font-bold text-center">
               <img src={IbuAnak1} alt="Ilustrasi" />
             </div>
           </InfoCard>
-          <InfoCard title="Perawatan Kehamilan" description="Perawatan Sehari-hari Ibu Hamil">
+          <InfoCard
+            title="Perawatan Kehamilan"
+            description="Perawatan Sehari-hari Ibu Hamil"
+          >
             <div className="w-full min-w-[400px] border shadow-sm rounded-lg text-white font-bold  text-center">
               <img src={IbuAnak2} alt="Ilustrasi" />
             </div>
           </InfoCard>
-          <InfoCard title="Porsi Makan Minum" description="Porsi makan dan minum ibu hamil untuk kebutuhan sehari-hari">
+          <InfoCard
+            title="Porsi Makan Minum"
+            description="Porsi makan dan minum ibu hamil untuk kebutuhan sehari-hari"
+          >
             <div className="w-full min-w-[400px] border shadow-sm rounded-lg text-white font-bold  text-center">
               <img src={IbuAnak3} alt="Ilustrasi" />
             </div>
           </InfoCard>
-          <InfoCard title="Persalinan" description="Persiapan melahirkan (Persalinan)">
+          <InfoCard
+            title="Persalinan"
+            description="Persiapan melahirkan (Persalinan)"
+          >
             <div className="w-full min-w-[400px] border shadow-sm rounded-lg text-white font-bold  text-center">
               <img src={IbuAnak4} alt="Ilustrasi" />
             </div>

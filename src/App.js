@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
 import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
+import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
 import "./App.css";
 
 function App() {
@@ -34,7 +35,11 @@ function App() {
           exact
           element={<Detail data={user} />}
         />
-
+        <Route
+          path="/ibu-anak/kehamilan/statistik/:id"
+          exact
+          element={<Statistik data={user} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

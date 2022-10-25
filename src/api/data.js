@@ -14,11 +14,27 @@ export const getPregnancyDataByUserId = async (id, cb) => {
   cb(userPregnancy);
 };
 
+export const getPregnancyDataById = async (id, cb) => {
+  const data = await fetch("/kehamilan.json");
+  const pregnancies = await data.json();
+  const userPregnancy = pregnancies.filter(
+    (pregnancy) => pregnancy.id === id
+  )[0];
+  cb(userPregnancy);
+};
+export const getCheckupDataById = async (id, cb) => {
+  const data = await fetch("/pemeriksaan.json");
+  const pregnancies = await data.json();
+  const userPregnancy = pregnancies.filter(
+    (pregnancy) => pregnancy.id_kehamilan === id
+  )[0];
+  cb(userPregnancy);
+};
 export const getCheckUpListDataByPatientId = async (id, cb) => {
   const response = await fetch("/pemeriksaan.json");
   const checkupList = await response.json();
   const patientCheckupList = await checkupList.filter(
-    (pregnancy) => pregnancy.id_ibu === id
+    (pregnancy) => pregnancy.id === id
   );
   cb(patientCheckupList);
 };

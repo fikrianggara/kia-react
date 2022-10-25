@@ -45,6 +45,7 @@ export default function CustomModal({ children, btn }) {
   );
 }
 export const Detail = ({ data }) => {
+  console.log(data);
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
   const [pregnancyData, setPregnancyData] = useState(null);
@@ -54,7 +55,7 @@ export const Detail = ({ data }) => {
   let jarakHinggaKelahiran = 0;
 
   useEffect(() => {
-    getPregnancyDataByUserId(id, setPregnancyData);
+    getPregnancyDataByUserId(user.id, setPregnancyData);
     getCheckUpListDataById(id, setCheckupListData);
   }, [id]);
 
@@ -333,11 +334,11 @@ patient profile start
                     </ul>
                   </div>
                   <div className="w-4/12">
-                    <Link to={checkupData.usg.link_hasil_usg}>
+                    <a href={checkupData.usg.link_hasil_usg}>
                       <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
                         <Download></Download>Hasil USG
                       </button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

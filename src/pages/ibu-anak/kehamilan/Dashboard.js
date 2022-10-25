@@ -135,14 +135,28 @@ export const Dashboard = ({ data }) => {
                   <span>Kembali</span>
                 </Link>
                 <div className="flex justify-end space-x-2">
-                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                  <Link
+                    to={`/ibu-anak/kehamilan/statistik/${pregnancyData[0].id}`}
+                    className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg px-3"
+                  >
+                    <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                      <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined>
+                      Selengkapnya
+                    </button>
+                  </Link>
+                  {/* <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
                     <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined>
                     Selengkapnya
-                  </button>
-                  <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg px-3">
-                    <Equalizer></Equalizer>
-                    Statistik Ibu
-                  </button>
+                  </button> */}
+                  {/* <Link
+                    to={`/ibu-anak/kehamilan/statistik/${pregnancyData[0].id}`}
+                    className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg px-3"
+                  >
+                    <button>
+                      <Equalizer></Equalizer>
+                      Statistik Ibu
+                    </button>
+                  </Link> */}
                 </div>
               </div>
 
