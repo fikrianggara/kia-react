@@ -270,13 +270,13 @@ export const Dashboard = ({ data }) => {
             <ul className="space-y-3">
               {checkupListData.map((checkup) => (
                 <li key={checkup.id}>
-                  <div className="p-6 space-y-2 max-w-sm border rounded-lg dark:bg-gray-800 dark:border-gray-700">
+                  <div className="p-6 space-y-2 max-w-md m-auto border rounded-lg dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex items-center space-x-2">
                       <MonitorHeart className="text-sky-800"></MonitorHeart>
                       <a href="#">
                         <h3 className="text-lg font-semibold tracking-tight  dark:text-white text-sky-800">
                           Pemeriksaan{" "}
-                          {checkup.tipe_pemeriksaan == "biasa"
+                          {checkup.tipe_pemeriksaan === "biasa"
                             ? "Rutin"
                             : "Khusus"}
                         </h3>
