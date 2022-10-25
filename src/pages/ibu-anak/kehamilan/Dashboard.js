@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import {
-  getPregnancyDataByUserId,
-  getCheckUpListDataByPatientId,
-} from "../../../api/data";
+import moment from "moment-with-locales-es6";
+import React, { useState, useEffect } from "react";
 import { showFormattedDate } from "../../../utils/index";
+import { getPregnancyDataByUserId, getCheckUpListDataByPatientId, } from "../../../api/data";
 import {
   AccountCircle,
   MonitorHeart,
@@ -14,8 +13,7 @@ import {
   CalendarToday,
   Equalizer,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import moment from "moment-with-locales-es6";
+
 moment.locale("id");
 
 export const Dashboard = ({ data }) => {
@@ -164,10 +162,7 @@ export const Dashboard = ({ data }) => {
                   <li className="mb-6 sm:mb-0 flex-col text-center justify-center items-center">
                     <div className="flex items-center text-center justify-center">
                       <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
-                        <MonitorHeart
-                          fontSize="xsmall"
-                          className="text-sky-600"
-                        ></MonitorHeart>
+                        <MonitorHeart fontSize="xsmall" className="text-sky-600" />
                       </div>
                       <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
@@ -180,10 +175,7 @@ export const Dashboard = ({ data }) => {
                   <li className="relative mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
-                        <MonitorHeart
-                          fontSize="xsmall"
-                          className="text-sky-600"
-                        ></MonitorHeart>
+                        <MonitorHeart fontSize="xsmall" className="text-sky-600" />
                       </div>
                       <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
@@ -196,10 +188,7 @@ export const Dashboard = ({ data }) => {
                   <li className="relative mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
-                        <MonitorHeart
-                          fontSize="xsmall"
-                          className="text-sky-600"
-                        ></MonitorHeart>
+                        <MonitorHeart fontSize="xsmall" className="text-sky-600" />
                       </div>
                       <div className="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
@@ -212,12 +201,8 @@ export const Dashboard = ({ data }) => {
                   <li className="relative mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                        <MonitorHeart
-                          fontSize="xsmall"
-                          className="text-gray-600"
-                        ></MonitorHeart>
+                        <MonitorHeart fontSize="xsmall" className="text-gray-600" />
                       </div>
-                      {/* <div className="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700 "></div> */}
                     </div>
                     <div className="mt-3 sm:pr-8 -ml-[20%]">
                       <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -225,36 +210,6 @@ export const Dashboard = ({ data }) => {
                       </span>
                     </div>
                   </li>
-                  {/* <li className="relative mb-6 sm:mb-0">
-                  <div className="flex items-center">
-                    <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                      <MonitorHeart
-                        fontSize="xsmall"
-                        className="text-gray-600"
-                      ></MonitorHeart>
-                    </div>
-                  </div>
-                  <div className="mt-3 sm:pr-8 -ml-[20%]">
-                    <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
-                      Trimester 3
-                    </span>
-                  </div>
-                </li> */}
-                  {/* <li className="relative mb-6 sm:mb-0">
-                  <div className="flex items-center">
-                    <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900">
-                      <MonitorHeart
-                        fontSize="xsmall"
-                        className="text-gray-600"
-                      ></MonitorHeart>
-                    </div>
-                  </div>
-                  <div className="mt-3">
-                    <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
-                      Kelahiran
-                    </span>
-                  </div>
-                </li> */}
                 </ol>
                 {/* timeline graph end */}
               </div>
@@ -272,7 +227,7 @@ export const Dashboard = ({ data }) => {
                 <li key={checkup.id}>
                   <div className="p-6 space-y-2 max-w-md m-auto border rounded-lg dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex items-center space-x-2">
-                      <MonitorHeart className="text-sky-800"></MonitorHeart>
+                      <MonitorHeart className="text-sky-800" />
                       <a href="#">
                         <h3 className="text-lg font-semibold tracking-tight  dark:text-white text-sky-800">
                           Pemeriksaan{" "}
