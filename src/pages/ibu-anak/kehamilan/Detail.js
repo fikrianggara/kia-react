@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Modal, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import {
-  getPregnancyDataByUserId,
-  getCheckUpListDataById,
-} from "../../../api/data";
+import moment from "moment-with-locales-es6";
+import React, { useState, useEffect } from "react";
 import { showFormattedDate } from "../../../utils/index";
+import { getPregnancyDataByUserId, getCheckUpListDataById, } from "../../../api/data";
 import {
   AccountCircle,
-  MonitorHeart,
   ArrowBackOutlined,
-  SecurityUpdateGoodOutlined,
   LocationOn,
-  CalendarToday,
   HealthAndSafety,
   AddLocation,
   CheckCircle,
   HelpOutline,
   Download,
 } from "@mui/icons-material";
-import { Modal, Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import moment from "moment-with-locales-es6";
+
 moment.locale("id");
 
 export default function CustomModal({ children, btn }) {
@@ -49,9 +44,6 @@ export const Detail = ({ data }) => {
   const user = data[0] ? data[0] : null;
   const [pregnancyData, setPregnancyData] = useState(null);
   const [checkupData, setCheckupListData] = useState(null);
-  let pregnancyAge = 0;
-  let lastCheckup = 0;
-  let jarakHinggaKelahiran = 0;
 
   useEffect(() => {
     getPregnancyDataByUserId(id, setPregnancyData);
@@ -84,9 +76,7 @@ export const Detail = ({ data }) => {
                 </div>
               </nav>
               <hr />
-              {/* 
-patient profile start
-*/}
+              {/* patient profile start*/}
               <h1 className="text-lg font-bold text-center">
                 Hasil Pemeriksaan pada{" "}
                 {showFormattedDate(checkupData.tanggal_pemeriksaan)}
@@ -97,11 +87,7 @@ patient profile start
                   <li className="flex space-x-2 items-center text-sky-800 font-medium">
                     <AccountCircle></AccountCircle>
                     <span>
-                      {checkupData.pemeriksa.jabatan
-                        .toLowerCase()
-                        .includes("dokter")
-                        ? "dr. "
-                        : ""}
+                      {checkupData.pemeriksa.jabatan.toLowerCase().includes("dokter") ? "dr. " : ""}
                       {checkupData.pemeriksa.nama}
                     </span>
                   </li>
@@ -129,11 +115,10 @@ patient profile start
                   <li>
                     Kondisi Ibu{" "}
                     <span
-                      className={`${
-                        checkupData.kondisi_ibu == "Baik"
-                          ? "text-green-500"
-                          : "text-amber-500"
-                      }`}
+                      className={`${checkupData.kondisi_ibu == "Baik"
+                        ? "text-green-500"
+                        : "text-amber-500"
+                        }`}
                     >
                       {checkupData.kondisi_ibu}
                       <HealthAndSafety />
@@ -142,11 +127,10 @@ patient profile start
                   <li>
                     Kondisi janin{" "}
                     <span
-                      className={`${
-                        checkupData.kondisi_janin == "Baik"
-                          ? "text-green-500"
-                          : "text-amber-500"
-                      }`}
+                      className={`${checkupData.kondisi_janin == "Baik"
+                        ? "text-green-500"
+                        : "text-amber-500"
+                        }`}
                     >
                       {checkupData.kondisi_janin}
                       <HealthAndSafety />
@@ -185,33 +169,30 @@ patient profile start
           <main className="p-4 bg-white">
             <div className="space-y-2">
               <h2 className="text-sky-800 font-medium">Pemeriksaan</h2>
-              <ul className="flex flex-wrap space-x-4 space-y-2 text-sm p-4">
+              <ul className="flex flex-wrap  text-sm p-4">
                 {Object.keys(checkupData.pemeriksaan_yang_dilakukan).map(
                   (pemeriksaan) => (
-                    <li key={pemeriksaan}>
+                    <li key={pemeriksaan} className="mr-2 mb-2">
                       <a
                         href={`#${pemeriksaan}`}
-                        className={`px-1 py-1 flex items-center rounded-full space-x-2 ${
-                          checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                            ? "bg-green-50"
-                            : "bg-gray-50 "
-                        }`}
+                        className={`px-1 py-1 flex items-center rounded-full space-x-2 ${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                          ? "bg-green-50"
+                          : "bg-gray-50 "
+                          }`}
                       >
                         <p
-                          className={`${
-                            checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                              ? "text-green-600"
-                              : "text-gray-300"
-                          }`}
+                          className={`${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                            ? "text-green-600"
+                            : "text-gray-300"
+                            }`}
                         >
                           {pemeriksaan.split("_").join(" ")}
                         </p>
                         <CheckCircle
-                          className={`${
-                            checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                              ? "text-green-400"
-                              : "text-gray-300"
-                          }`}
+                          className={`${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                            ? "text-green-400"
+                            : "text-gray-300"
+                            }`}
                         ></CheckCircle>
                       </a>
                     </li>
@@ -284,11 +265,10 @@ patient profile start
                     </li>
                   </ul>
                   <h4
-                    className={`${
-                      checkupData.timbangan.imt == "Normal"
-                        ? "text-green-500 font-bold"
-                        : ""
-                    }`}
+                    className={`${checkupData.timbangan.imt == "Normal"
+                      ? "text-green-500 font-bold"
+                      : ""
+                      }`}
                   >
                     {checkupData.timbangan.imt}
                   </h4>
@@ -297,17 +277,10 @@ patient profile start
               {/* timbangan end */}
               {/* usg */}
               <div className="border rounded-lg p-4 space-y-2">
-                <div className="flex space-x-2 text-sky-800 font-medium items-center justify-between">
+                <div className="flex text-sky-800 font-medium items-center justify-between">
                   <h3 id="timbang">USG</h3>
 
-                  <CustomModal
-                    btn={
-                      <HelpOutline
-                        fontSize="medium"
-                        className="hover:cursor-pointer"
-                      />
-                    }
-                  >
+                  <CustomModal btn={<HelpOutline fontSize="medium" className="hover:cursor-pointer" />}>
                     <h2 className="text-sky-800 font-medium">USG</h2>
                     <div className="space-y-2">
                       <p>
@@ -319,26 +292,26 @@ patient profile start
                   </CustomModal>
                 </div>
                 <div className="flex justify-between p-2">
-                  <div className="text-start  w-8/12">
-                    <h4>Meliputi :</h4>
-                    <ul className="text-sm p-2 flex flex-wrap space-x-2 space-y-2">
+                  <div className="text-start">
+                    <div className="flex justify-between align-middle">
+                      <h4>Meliputi :</h4>
+                      <div className="w-4/12">
+                        <Link to={checkupData.usg.link_hasil_usg}>
+                          <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                            <Download></Download>Hasil USG
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    <ul className="text-sm mt-4 flex flex-wrap">
                       {checkupData.usg.pemeriksaan.map((item) => (
-                        <li
-                          key={item.nama}
-                          className="px-2 py-1 bg-gray-100 rounded"
-                        >
+                        <li key={item.nama} className="px-2 py-1 mb-2 mr-2 bg-gray-100 rounded">
                           {item.nama}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="w-4/12">
-                    <Link to={checkupData.usg.link_hasil_usg}>
-                      <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
-                        <Download></Download>Hasil USG
-                      </button>
-                    </Link>
-                  </div>
+
                 </div>
               </div>
               {/* usg end */}

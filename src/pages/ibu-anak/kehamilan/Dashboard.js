@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment-with-locales-es6";
 import React, { useState, useEffect } from "react";
 import { showFormattedDate } from "../../../utils/index";
+import { PregnancySelection } from "../../../components/ibu-anak/PregnancySelection";
 import { getPregnancyDataByUserId, getCheckUpListDataByPatientId, } from "../../../api/data";
 import {
   AccountCircle,
@@ -12,8 +13,8 @@ import {
   LocationOn,
   CalendarToday,
   Equalizer,
+  Warning,
 } from "@mui/icons-material";
-import { PregnancySelection } from "../../../components/ibu-anak/PregnancySelection";
 
 moment.locale("id");
 
@@ -234,10 +235,24 @@ export const Dashboard = ({ data }) => {
       </header>
       {/* patient overview end */}
 
+      <div className="notifications p-4 bg-white" >
+        <div>
+          <h2 className="text-black font-medium text-lg p-4">Notifikasi</h2>
+        </div>
+        <div>
+          <div className="bg-gradient-to-r from-red-500 to-blue-500  rounded-lg text-white p-4 w-full">
+            <h3 className="w-64 text-start text-lg font-bold align-middle flex"><Warning className="mr-2" /> Informasi Imunisasi</h3>
+            <p className="flex text-sm justify-between pt-4">
+              Imunisasi Polio tersedia di Posyandu ABC pada tanggal {(new Date()).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* main */}
       <main className="p-4 bg-white">
         {/* checkup card component list start */}
-        <h1 className="text-black font-medium text-lg p-4">Pemeriksaan</h1>
+        <h2 className="text-black font-medium text-lg p-4">Pemeriksaan</h2>
         <div className="flex m-auto">
           <ul className="space-y-3 m-auto">
             {checkupListData.map((checkup) => (
