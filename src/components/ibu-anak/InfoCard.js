@@ -1,16 +1,14 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 export const InfoCard = ({ title, description, children }) => {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <div className="bg-gradient-to-r from-red-500 to-blue-500  rounded-lg text-white font-bold p-4 w-full">
-        <h3 className="w-64 text-start text-lg">
-          {title}
-        </h3>
-        <div className='flex text-sm justify-between'>
+        <h3 className="w-64 text-start text-lg">{title}</h3>
+        <div className="flex text-sm justify-between">
           <p>{description}</p>
           <div>
             <button
@@ -25,7 +23,11 @@ export const InfoCard = ({ title, description, children }) => {
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => setIsOpen(false)}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -51,9 +53,7 @@ export const InfoCard = ({ title, description, children }) => {
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden  bg-white p-2 text-left align-middle shadow-xl transition-all">
                   <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      {children}
-                    </p>
+                    <p className="text-sm text-gray-500">{children}</p>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -62,5 +62,5 @@ export const InfoCard = ({ title, description, children }) => {
         </Dialog>
       </Transition>
     </>
-  )
-}
+  );
+};

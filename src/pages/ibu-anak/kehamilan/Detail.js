@@ -319,20 +319,26 @@ patient profile start
                   </CustomModal>
                 </div>
                 <div className="flex justify-between p-2">
-                  <div className="text-start">
+                  <div className="text-start  w-8/12">
                     <h4>Meliputi :</h4>
-                    <ul className="text-sm p-2">
+                    <ul className="text-sm p-2 flex flex-wrap space-x-2 space-y-2">
                       {checkupData.usg.pemeriksaan.map((item) => (
-                        <li key={item}>{item.nama}</li>
+                        <li
+                          key={item.nama}
+                          className="px-2 py-1 bg-gray-100 rounded"
+                        >
+                          {item.nama}
+                        </li>
                       ))}
                     </ul>
                   </div>
-
-                  <Link to={checkupData.usg.link_hasil_usg}>
-                    <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
-                      <Download></Download>Hasil USG
-                    </button>
-                  </Link>
+                  <div className="w-4/12">
+                    <Link to={checkupData.usg.link_hasil_usg}>
+                      <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                        <Download></Download>Hasil USG
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
               {/* usg end */}
