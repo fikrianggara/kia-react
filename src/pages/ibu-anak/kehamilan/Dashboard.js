@@ -173,7 +173,11 @@ export const Dashboard = ({ data }) => {
                     </div>
                     <div className="mt-3 sm:pr-8 -ml-[50%]">
                       <span className="text-sky-400 block mb-2 font-normal leading-none  dark:text-gray-500">
-                        hari pertama
+                        {
+                          showFormattedDate(
+                            pregnancyData[0]?.hari_pertama_haid_terakhir
+                          ).split(",")[1]
+                        }
                       </span>
                     </div>
                   </li>
@@ -221,7 +225,11 @@ export const Dashboard = ({ data }) => {
                     </div>
                     <div className="mt-3 sm:pr-8 -ml-[20%]">
                       <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Persalinan
+                        {
+                          showFormattedDate(
+                            pregnancyData[0]?.estimasi_tanggal_kelahiran
+                          ).split(",")[1]
+                        }
                       </span>
                     </div>
                   </li>
@@ -267,20 +275,21 @@ export const Dashboard = ({ data }) => {
           <main className="p-4 bg-white">
             {/* checkup card component list start */}
             <h1 className="text-black font-medium text-lg p-4">Pemeriksaan</h1>
-            <ul className="space-y-3">
-              {checkupListData.map((checkup) => (
-                <li key={checkup.id}>
-                  <div className="p-6 space-y-2 max-w-sm border rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <div className="flex m-auto">
+              <ul className="space-y-3 m-auto">
+                {checkupListData.map((checkup) => (
+                  <li
+                    key={checkup.id}
+                    className="p-6 space-y-2 max-w-sm border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+                  >
                     <div className="flex items-center space-x-2">
                       <MonitorHeart className="text-sky-800"></MonitorHeart>
-                      <a href="#">
-                        <h3 className="text-lg font-semibold tracking-tight  dark:text-white text-sky-800">
-                          Pemeriksaan{" "}
-                          {checkup.tipe_pemeriksaan == "biasa"
-                            ? "Rutin"
-                            : "Khusus"}
-                        </h3>
-                      </a>
+                      <h3 className="text-lg font-semibold tracking-tight  dark:text-white text-sky-800">
+                        Pemeriksaan{" "}
+                        {checkup.tipe_pemeriksaan == "biasa"
+                          ? "Rutin"
+                          : "Khusus"}
+                      </h3>
                     </div>
                     <div className="flex space-x-2 items-center text-sm">
                       <AccountCircle className="text-sky-800"></AccountCircle>
@@ -314,10 +323,11 @@ export const Dashboard = ({ data }) => {
                         {showFormattedDate(checkup.tanggal_pemeriksaan)}
                       </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div></div>
             {/* checkup card component list end */}
           </main>
