@@ -26,7 +26,10 @@
       "timbang": true,
       "ukur_lingkar_lengan_atas": true,
       "tekanan_darah": true,
-      "periksa_tinggi_rahim": true,
+      "fisik": true,
+      "usg": true,
+      "laboraturium": true,
+      "periksa_tinggi_rahim": false,
       "periksa_letak_dan_denyut_jantung": false,
       "status_imunisasi_tetanus": true,
       "konseling": false,
@@ -34,10 +37,11 @@
       "test_lab_hemoglobin": true,
       "test_golongan_darah": true,
       "test_lab_protein_urine": true,
-      "test_lab_gula_darah": true
+      "test_lab_gula_darah": true,
+      "skrining_preeklampsia": true
     },
     "rencana_persalinan": null,
-    "timbangan": {
+    "timbang": {
       "berat": {
         "nilai": 52,
         "satuan": "kg"
@@ -48,7 +52,7 @@
       },
       "imt": "Normal"
     },
-    "lingkar_lengan_atas": {
+    "ukur_lingkar_lengan_atas": {
       "nilai": 23.5,
       "satuan": "cm",
       "status": "Normal"

@@ -19,7 +19,7 @@ function App() {
   if (!user) return <span>Loading...</span>;
 
   return (
-    <div className="bg-gray-100 min-h-screen sm:w-[480px] m-auto md:shadow">
+    <div className="bg-gray-100 min-h-screen sm:w-[480px] m-auto md:shadow scroll-smooth">
       <Routes>
         <Route path="/" index element={<Home data={user} />} />
 
