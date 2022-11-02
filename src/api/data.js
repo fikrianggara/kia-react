@@ -1,12 +1,12 @@
 export const getUserData = async (cb) => {
-  const data = await fetch("/ibu.json");
+  const data = await fetch("/api/ibu.json");
   const user = await data.json();
   //   const user = await data.json();
   cb(user);
 };
 
 export const getPregnancyDataByUserId = async (id, cb) => {
-  const data = await fetch("/kehamilan.json");
+  const data = await fetch("/api/kehamilan.json");
   const pregnancies = await data.json();
   const userPregnancy = pregnancies.filter(
     (pregnancy) => pregnancy.id_ibu === id
@@ -15,7 +15,7 @@ export const getPregnancyDataByUserId = async (id, cb) => {
 };
 
 export const getPregnancyDataById = async (id, cb) => {
-  const data = await fetch("/kehamilan.json");
+  const data = await fetch("/api/kehamilan.json");
   const pregnancies = await data.json();
   const userPregnancy = pregnancies.filter(
     (pregnancy) => pregnancy.id === id
@@ -23,7 +23,7 @@ export const getPregnancyDataById = async (id, cb) => {
   cb(userPregnancy);
 };
 export const getCheckupDataById = async (id, cb) => {
-  const data = await fetch("/pemeriksaan.json");
+  const data = await fetch("/api/pemeriksaan.json");
   const pregnancies = await data.json();
   const userPregnancy = pregnancies.filter(
     (pregnancy) => pregnancy.id_kehamilan === id
@@ -31,7 +31,7 @@ export const getCheckupDataById = async (id, cb) => {
   cb(userPregnancy);
 };
 export const getCheckUpListDataByPatientId = async (id, cb) => {
-  const response = await fetch("/pemeriksaan.json");
+  const response = await fetch("/api/pemeriksaan.json");
   const checkupList = await response.json();
   const patientCheckupList = await checkupList.filter(
     (pregnancy) => pregnancy.id_ibu === id
@@ -40,7 +40,7 @@ export const getCheckUpListDataByPatientId = async (id, cb) => {
 };
 
 export const getCheckUpListDataById = async (id, cb) => {
-  const response = await fetch("/pemeriksaan.json");
+  const response = await fetch("/api/pemeriksaan.json");
   const checkupList = await response.json();
   const patientCheckupData = await checkupList.find(
     (pregnancy) => pregnancy.id === id
