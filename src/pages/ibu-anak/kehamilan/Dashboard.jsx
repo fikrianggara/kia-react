@@ -5,7 +5,11 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { ShareData } from "@/components/ibu-anak/ShareData";
 import { CheckBadgeIcon, MapPinIcon } from "@heroicons/react/24/solid";
-import { UserCircleIcon, ArrowLeftIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import {
+  UserCircleIcon,
+  ArrowLeftIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/24/outline";
 import { PregnancySelection } from "@/components/ibu-anak/PregnancySelection";
 import {
   getPregnancyDataByUserId,
@@ -137,7 +141,7 @@ export const Dashboard = ({ data }) => {
 
           <div className="w-full text-xs p-4 ">
             {/* timeline graph start */}
-            <ol className="items-center grid grid-cols-4 p-2 ">
+            <ol className="items-center grid grid-cols-5 p-2">
               <li className="mb-6 sm:mb-0 flex-col text-center justify-center items-center">
                 <div className="flex items-center text-center justify-center">
                   <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
@@ -145,7 +149,7 @@ export const Dashboard = ({ data }) => {
                   </div>
                   <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[50%]">
+                <div className="mt-3 -ml-[50%]">
                   <span className="text-sky-400 block mb-2 font-normal leading-none  dark:text-gray-500">
                     {
                       showFormattedDate(
@@ -162,7 +166,7 @@ export const Dashboard = ({ data }) => {
                   </div>
                   <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[20%]">
+                <div className="mt-3 -ml-[20%]">
                   <span className="block mb-2 font-normal leading-none text-sky-400 dark:text-gray-500">
                     Trimester 1
                   </span>
@@ -173,11 +177,24 @@ export const Dashboard = ({ data }) => {
                   <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
                     {/* <MonitorHeart fontSize="xsmall" className="text-sky-600" /> */}
                   </div>
-                  <div className="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                  <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[20%]">
+                <div className="mt-3 -ml-[20%]">
                   <span className="block mb-2 font-normal leading-none text-sky-400 dark:text-gray-500">
                     Trimester 2
+                  </span>
+                </div>
+              </li>
+              <li className="relative mb-6 sm:mb-0 ">
+                <div className="flex items-center">
+                  <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
+                    {/* <MonitorHeart fontSize="xsmall" className="text-sky-600" /> */}
+                  </div>
+                  <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
+                </div>
+                <div className="mt-3 -ml-[20%] text-clip">
+                  <span className="block mb-2 font-normal leading-none text-sky-400 dark:text-gray-500">
+                    Trimester 3
                   </span>
                 </div>
               </li>
@@ -187,7 +204,7 @@ export const Dashboard = ({ data }) => {
                     {/* <MonitorHeart fontSize="xsmall" className="text-gray-600" /> */}
                   </div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[20%]">
+                <div className="mt-3 -ml-[20%]">
                   <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
                     {
                       showFormattedDate(
@@ -218,8 +235,9 @@ export const Dashboard = ({ data }) => {
               <InformationCircleIcon className="w-7" />
               <p className="flex text-sm justify-between flex-1">
                 Puskesma Bidara Cina mengadakan kelas Ibu pada tanggal{" "}
-                {new Date().toLocaleDateString()}, membahas tentang kehamilan, persalinan, perawatan masa nifas, perawatan
-                bayi baru lahir, dan pemenuhan gizi
+                {new Date().toLocaleDateString()}, membahas tentang kehamilan,
+                persalinan, perawatan masa nifas, perawatan bayi baru lahir, dan
+                pemenuhan gizi
               </p>
             </div>
           </div>
