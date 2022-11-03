@@ -7,6 +7,7 @@ import PemeriksaanCard from "../../../components/ibu-anak/PemeriksaanCard";
 import { CustomModal } from "../../../components/CustomModal";
 import { getCheckUpListDataById } from "../../../api/data";
 import { ToTopButton } from "../../../components/ToTopButton";
+import UsgDummy from "../../../assets/ibu-anak/usg_dummy.jpeg";
 import {
   AccountCircle,
   ArrowBackOutlined,
@@ -16,6 +17,7 @@ import {
   CheckCircle,
   RemoveCircle,
   HelpOutline,
+  CropFreeOutlined,
   Download,
 } from "@mui/icons-material";
 
@@ -25,6 +27,7 @@ export const PemeriksaanTimbang = ({ timbang }) => {
   return (
     <PemeriksaanCard
       title="Timbang"
+      id="timbang"
       info={
         <CustomModal
           btn={
@@ -81,6 +84,7 @@ export const PemeriksaanUSG = ({ usg }) => {
   return (
     <PemeriksaanCard
       title="USG"
+      id="usg"
       info={
         <CustomModal
           btn={
@@ -99,20 +103,35 @@ export const PemeriksaanUSG = ({ usg }) => {
       }
     >
       <div className="flex justify-between p-2">
-        <div className="text-start">
-          <div className="flex justify-between align-middle">
+        <div className="text-start space-y-2 w-full">
+          <div className="flex justify-between align-middle items-start w-full">
             <h4>Meliputi :</h4>
-            <div className="w-4/12">
-              <Link to={usg.link_hasil_usg}>
-                <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
-                  <Download></Download>Hasil USG
-                </button>
-              </Link>
+            <div className="p-2">
+              <CustomModal
+                btn={
+                  <span className=" w-full hover:cursor-pointer bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3 text-sm">
+                    <CropFreeOutlined fontSize="medium" />
+                    Hasil USG
+                  </span>
+                }
+              >
+                <h2 className="text-sky-800 font-medium">USG</h2>
+                <div className="flex-rows space-y-2">
+                  <img
+                    src={UsgDummy}
+                    alt="hasil usg"
+                    className="w-full aspect-auto m-auto rounded"
+                  />
+                  <span className=" w-full hover:cursor-pointer bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+                    <Download fontSize="medium" />
+                    Download
+                  </span>
+                </div>
+              </CustomModal>
             </div>
           </div>
-          <h2>Pemeriksaan</h2>
-          <ul className="text-sm mt-4 flex flex-wrap">
-            <table className="text-sm m-auto">
+          <div>
+            <table className="text-sm m-auto w-11/12">
               <thead>
                 <tr className="border p-2">
                   <th key="usg-nama" className="p-2">
@@ -123,7 +142,7 @@ export const PemeriksaanUSG = ({ usg }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="text-gray-400">
+              <tbody>
                 {usg.pemeriksaan.map((item) => {
                   return (
                     <tr key={item.nama} className="border p-2">
@@ -136,15 +155,17 @@ export const PemeriksaanUSG = ({ usg }) => {
                 })}
               </tbody>
             </table>
-            {usg.pemeriksaan.map((item) => (
-              <li
-                key={item.nama}
-                className="px-2 py-1 mb-2 mr-2 bg-gray-100 rounded"
-              >
-                {item.nama}
-              </li>
-            ))}
-          </ul>
+            {/* <ul className="text-sm mt-4 flex flex-wrap">
+              {usg.pemeriksaan.map((item) => (
+                <li
+                  key={item.nama}
+                  className="px-2 py-1 mb-2 mr-2 bg-gray-100 rounded"
+                >
+                  {item.nama}
+                </li>
+              ))}
+            </ul> */}
+          </div>
         </div>
       </div>
     </PemeriksaanCard>
@@ -155,6 +176,7 @@ export const PemeriksaanFisik = ({ fisik }) => {
   return (
     <PemeriksaanCard
       title="Fisik"
+      id="fisik"
       info={
         <CustomModal
           btn={
@@ -188,7 +210,7 @@ export const PemeriksaanFisik = ({ fisik }) => {
         <div className="text-regular">
           <h2>Pemeriksaan</h2>
           <div className="flex p-2">
-            <table className="text-sm m-auto w-3/4">
+            <table className="text-sm m-auto w-11/12">
               <thead>
                 <tr className="border p-2">
                   {Object.keys(fisik.pemeriksaan[0]).map((kolom) => (
@@ -223,9 +245,11 @@ export const PemeriksaanFisik = ({ fisik }) => {
 };
 
 export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
+  console.log(skriningPreeklampsia);
   return (
     <PemeriksaanCard
-      title="skriningPreeklampsia"
+      title="Screening Preeklampsia"
+      id="skrining_preeklampsia"
       info={
         <CustomModal
           btn={
@@ -245,9 +269,84 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
         </CustomModal>
       }
     >
-      <div className="flex justify-between p-2">
-        {/* {JSON.stringify(skriningPreeklampsia)} */}
-        dummy data
+      <div className="space-y-3">
+        <div className="flex justify-between text-sm">
+          <div className="flex space-x-2 items-center text-sky-800 font-medium">
+            <AccountCircle></AccountCircle>
+            <span>{skriningPreeklampsia.nama_dokter}</span>
+          </div>
+          <div className="mr-2">
+            {showFormattedDate(skriningPreeklampsia.tanggal_pemeriksaan)}
+          </div>
+        </div>
+
+        <div className="p-2 bg-sky-50 rounded text-sm">
+          <p className="mb-3 font-normal text-sky-500 dark:text-gray-400">
+            Berdasarkan skrining, diperoleh informasi bahwa{" "}
+            {skriningPreeklampsia.kesimpulan}
+          </p>
+        </div>
+        <ul className="flex space-x-2">
+          <li>
+            <span
+              className={`text-green-500 ${
+                skriningPreeklampsia.jumlah_risiko_sedang == 0
+                  ? ""
+                  : "text-amber-600"
+              }`}
+            >
+              {skriningPreeklampsia.jumlah_risiko_sedang == 0
+                ? "tidak ada"
+                : skriningPreeklampsia.jumlah_risiko_sedang}
+            </span>{" "}
+            resiko sedang
+          </li>
+          <li>
+            <span
+              className={`text-green-500 ${
+                skriningPreeklampsia.jumlah_risiko_berat == 0
+                  ? ""
+                  : "text-amber-600"
+              }`}
+            >
+              {skriningPreeklampsia.jumlah_risiko_berat == 0
+                ? "tidak ada"
+                : skriningPreeklampsia.jumlah_risiko_berat}
+            </span>{" "}
+            resiko berat
+          </li>
+        </ul>
+        <div className="space-y-2">
+          <h2>Pemeriksaan kriteria amnesis</h2>
+          <div className="flex">
+            <table className="m-auto text-sm w-11/12 border">
+              <thead>
+                <tr>
+                  <th className="p-2">Nama</th>
+                  <th className="w-2/4 p-2">Resiko</th>
+                </tr>
+              </thead>
+              <tbody>
+                {skriningPreeklampsia.kriteria_anamnesis.map((kriteria) => {
+                  return (
+                    <tr key={`skrining-${kriteria.nama}`} className="border">
+                      <td className="p-2">{kriteria.nama}</td>
+                      <td
+                        className={`w-2/4 p-2 text-green-500${
+                          kriteria.risiko == null ? "" : "text-amber-500"
+                        }`}
+                      >
+                        {kriteria.risiko == null
+                          ? "tidak ada"
+                          : kriteria.risiko}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </PemeriksaanCard>
   );
@@ -257,6 +356,7 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
   return (
     <PemeriksaanCard
       title="Ukur Lingkar Lengan Atas"
+      id="ukur_lingkar_lengan_atas"
       info={
         <CustomModal
           btn={
@@ -282,7 +382,6 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
             {ukurLingkarLenganAtas.nilai + " " + ukurLingkarLenganAtas.satuan}
           </span>
         </div>
-        {console.log(ukurLingkarLenganAtas)}
         <h4
           className={`text-green-500 font-bold ${
             ukurLingkarLenganAtas.status !== "Normal" ? "text-amber-600" : ""
@@ -323,17 +422,18 @@ export const ListDetailPemeriksaan = ({ checkupData, checkedupList }) => {
     <PemeriksaanMapper key={checkup} checkupData={checkupData} type={checkup} />
   ));
 };
+
 export const Detail = ({ data }) => {
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
   const [checkupData, setCheckupListData] = useState(null);
 
-  console.log(
-    checkupData &&
-      Object.keys(checkupData).filter((key) =>
-        Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(key)
-      )
-  );
+  // console.log(
+  //   checkupData &&
+  //     Object.keys(checkupData).filter((key) =>
+  //       Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(key)
+  //     )
+  // );
   useEffect(() => {
     getCheckUpListDataById(id, setCheckupListData);
   }, [id]);
@@ -470,7 +570,7 @@ export const Detail = ({ data }) => {
         </header>
         {/* patient overview end */}
         {/* main */}
-        <main className="p-4 bg-white">
+        <main className="p-4 bg-white" id="main">
           <div className="space-y-2">
             <h2 className="text-sky-800 font-medium">Pemeriksaan</h2>
             {/* start list pemeriksaan yang dilakukan */}
@@ -521,7 +621,7 @@ export const Detail = ({ data }) => {
         </main>
         {/* main end */}
         <footer></footer>
-        <ToTopButton reference="#header"></ToTopButton>
+        <ToTopButton reference="#main" />
       </div>
     </>
   );
