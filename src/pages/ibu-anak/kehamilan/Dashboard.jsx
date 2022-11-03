@@ -149,7 +149,7 @@ export const Dashboard = ({ data }) => {
                   </div>
                   <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 -ml-[50%]">
+                <div className="mt-3 mb-2 -ml-[50%]">
                   <span className="text-sky-400 block mb-2 font-normal leading-none  dark:text-gray-500">
                     {
                       showFormattedDate(
@@ -200,9 +200,7 @@ export const Dashboard = ({ data }) => {
               </li>
               <li className="relative mb-6 sm:mb-0">
                 <div className="flex items-center">
-                  <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                    {/* <MonitorHeart fontSize="xsmall" className="text-gray-600" /> */}
-                  </div>
+                  <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900 shrink-0"></div>
                 </div>
                 <div className="mt-3 sm:pr-8 -ml-[20%] text-clip">
                   <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500 ">
