@@ -61,22 +61,6 @@ export const Statistik = ({ data }) => {
                 )}
               </h1>
               <div>
-                {/* <div className="bg-gray-50 h-20 w-full rounded-lg flex m-auto">
-                  <div className="text-green-400 ring-4 h-16 w-16 bg-gray-50 ring-green-500 rounded-full items-center flex flex-col justify-center m-auto">
-                    <span className="self-center text-green-500 font-medium text-sm">
-                      Janin
-                    </span>
-                    <span className="text-xs">Sehat</span>
-                  </div>
-                </div>
-                <div className="bg-gray-50 h-20 w-full rounded-lg flex m-auto">
-                  <div className="text-green-400 ring-4 h-16 w-16 ring-green-500 rounded-full items-center flex flex-col justify-center m-auto">
-                    <span className="self-center text-green-500 font-medium text-sm">
-                      Ibu
-                    </span>
-                    <span className="text-xs">Sehat</span>
-                  </div>
-                </div> */}
                 <ul className="grid grid-cols-3 gap-1 m-auto h-fit p-4 bg-white rounded-xl grid-rows-2">
                   {checkupData.laboratorium.pemeriksaan.map((item) => (
                     <li key={item.nama}>
@@ -102,26 +86,6 @@ export const Statistik = ({ data }) => {
                     <ArrowLeftIcon className="w-4" />
                     <span>Kembali</span>
                   </Link>
-                  <AddBodyWeight />
-                  {isConfirmed ? (
-                    <button
-                      disabled
-                      className=" bg-green-50 flex py-1 sm:py-2 justify-evenly items-center text-green-500 rounded-md px-2 sm:px-3 text-xs sm:text-sm"
-                    >
-                      {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
-                      <CheckCircleIcon className="w-4 mr-2 text-green-500" />
-                      TTD Dikonfirmasi
-                    </button>
-                  ) : (
-                    <button
-                      onClick={(e) => setIsConfirmed(true)}
-                      className=" bg-sky-50 flex py-1 sm:py-2 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs sm:text-sm"
-                    >
-                      {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
-                      <PlusIcon className="w-4 mr-2" />
-                      Konfirmasi TTD
-                    </button>
-                  )}
                 </div>
               </div>
               {/* back and update data button end */}
@@ -131,26 +95,38 @@ export const Statistik = ({ data }) => {
 
           {/* main */}
           <main className="p-4 bg-white">
+            <div className="flex justify-between mb-4">
+              {isConfirmed ? (
+                <button
+                  disabled
+                  className=" bg-green-50 flex py-1 sm:py-2 justify-evenly items-center text-green-500 rounded-md px-2 sm:px-3 text-xs sm:text-sm"
+                >
+                  {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
+                  <CheckCircleIcon className="w-4 mr-2 text-green-500" />
+                  TTD Dikonfirmasi
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => setIsConfirmed(true)}
+                  className=" bg-sky-50 flex py-1 sm:py-2 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs sm:text-sm"
+                >
+                  {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
+                  <PlusIcon className="w-4 mr-2" />
+                  Konfirmasi TTD
+                </button>
+              )}
+              <AddBodyWeight />
+            </div>
             <div className="space-y-2">
               <LineChart judul={"Berat Badan (Kilogram)"} color="sky" id="1" />
             </div>
-            {/* <div className="space-y-2">
-              <LineChart
-                judul={"Tablet Tambah Darah (TTD)"}
-                color="pink"
-                data
-                id="1"
-              />
-            </div> */}
+
             <div className="space-y-2  p-2 rounded border font-medium">
               <h2 className="text-lg">Tablet Tambah Darah (TTD)</h2>
               <CalendarCustom
                 datesInput={getDatesInRange(new Date("2022-10-15"), new Date())}
               />
             </div>
-            {/* <div className="space-y-2">
-              <LineChart judul={"Gula Darah Puasa"} id="2" />
-            </div> */}
           </main>
           {/* main end */}
           <footer></footer>
