@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
 import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
+import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
 // import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     getUserData(setUser);
   }, []);
 
-  if (!user) return <Loader />
+  if (!user) return <Loader />;
 
   return (
     <div className="bg-gray-100 min-h-screen sm:w-[480px] m-auto md:shadow scroll-smooth">
@@ -34,6 +35,11 @@ function App() {
           path="/ibu-anak/kehamilan/detail/:id"
           exact
           element={<Detail data={user} />}
+        />
+        <Route
+          path="/ibu-anak/kehamilan/statistik/:id"
+          exact
+          element={<Statistik data={user} />}
         />
         {/* <Route
           path="/ibu-anak/kehamilan/statistik/:id"

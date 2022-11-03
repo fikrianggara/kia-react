@@ -17,7 +17,7 @@ import {
   MinusCircleIcon,
   QuestionMarkCircleIcon,
   ArrowDownTrayIcon,
-} from "@heroicons/react/24/outline"
+} from "@heroicons/react/24/outline";
 
 export const PemeriksaanTimbang = ({ timbang }) => {
   return (
@@ -25,7 +25,9 @@ export const PemeriksaanTimbang = ({ timbang }) => {
       title="Timbang"
       id="timbang"
       info={
-        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
+        <CustomModal
+          icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}
+        >
           <h2 className="text-sky-800 font-medium">Index Massa Tubuh</h2>
           <div className="space-y-2 p-2">
             <p className="text-sm">
@@ -60,7 +62,11 @@ export const PemeriksaanTimbang = ({ timbang }) => {
           <li>{timbang.berat.nilai + " " + timbang.berat.satuan}</li>
           <li>{timbang.tinggi.nilai + " " + timbang.tinggi.satuan}</li>
         </ul>
-        <h4 className={`${timbang.imt == "Normal" ? "text-green-500 font-bold" : ""}`}>
+        <h4
+          className={`${
+            timbang.imt == "Normal" ? "text-green-500 font-bold" : ""
+          }`}
+        >
           {timbang.imt}
         </h4>
       </div>
@@ -74,7 +80,9 @@ export const PemeriksaanUSG = ({ usg }) => {
       title="USG"
       id="usg"
       info={
-        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
+        <CustomModal
+          icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}
+        >
           <h2 className="text-sky-800 font-medium">USG</h2>
           <div className="space-y-2">
             <p>
@@ -155,7 +163,9 @@ export const PemeriksaanFisik = ({ fisik }) => {
       title="Fisik"
       id="fisik"
       info={
-        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
+        <CustomModal
+          icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}
+        >
           <h2 className="text-sky-800 font-medium">Fisik</h2>
           <div className="space-y-2">
             <p>
@@ -172,7 +182,11 @@ export const PemeriksaanFisik = ({ fisik }) => {
       <div>
         <div className="flex justify-between mb-4">
           <span>Keadaan Umum</span>
-          <span className={`text-green-500 font-bold ${fisik.keadaan_umum !== "Semuanya Normal" ? "text-amber-600" : ""}`}>
+          <span
+            className={`text-green-500 font-bold ${
+              fisik.keadaan_umum !== "Semuanya Normal" ? "text-amber-600" : ""
+            }`}
+          >
             {fisik.keadaan_umum}
           </span>
         </div>
@@ -194,7 +208,11 @@ export const PemeriksaanFisik = ({ fisik }) => {
                   return (
                     <tr key={item.nama} className="border p-2">
                       <td className="p-2">{item.nama}</td>
-                      <td className={`text-green-500  ${item.keadaan !== "Normal" ? "text-amber-600" : ""}`}>
+                      <td
+                        className={`text-green-500  ${
+                          item.keadaan !== "Normal" ? "text-amber-600" : ""
+                        }`}
+                      >
                         {item.keadaan}
                       </td>
                     </tr>
@@ -216,7 +234,9 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
       title="Screening Preeklampsia"
       id="skrining_preeklampsia"
       info={
-        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
+        <CustomModal
+          icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}
+        >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
           <div className="space-y-2">
             <p>
@@ -250,7 +270,12 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
         <ul className="flex space-x-2 text-gray-600">
           <li>
             <span
-              className={`text-green-500 ${skriningPreeklampsia.jumlah_risiko_sedang == 0 ? "" : "text-amber-600"}`}>
+              className={`text-green-500 ${
+                skriningPreeklampsia.jumlah_risiko_sedang == 0
+                  ? ""
+                  : "text-amber-600"
+              }`}
+            >
               {skriningPreeklampsia.jumlah_risiko_sedang == 0
                 ? "tidak ada"
                 : skriningPreeklampsia.jumlah_risiko_sedang}
@@ -258,7 +283,13 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
             resiko sedang
           </li>
           <li>
-            <span className={`text-green-500 ${skriningPreeklampsia.jumlah_risiko_berat == 0 ? "" : "text-amber-600"}`}>
+            <span
+              className={`text-green-500 ${
+                skriningPreeklampsia.jumlah_risiko_berat == 0
+                  ? ""
+                  : "text-amber-600"
+              }`}
+            >
               {skriningPreeklampsia.jumlah_risiko_berat == 0
                 ? "tidak ada"
                 : skriningPreeklampsia.jumlah_risiko_berat}
@@ -281,7 +312,11 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
                   return (
                     <tr key={`skrining-${kriteria.nama}`} className="border">
                       <td className="p-2">{kriteria.nama}</td>
-                      <td className={`w-2/4 p-2 text-green-500${kriteria.risiko == null ? "" : "text-amber-500"}`}>
+                      <td
+                        className={`w-2/4 p-2 text-green-500${
+                          kriteria.risiko == null ? "" : "text-amber-500"
+                        }`}
+                      >
                         {kriteria.risiko == null
                           ? "tidak ada"
                           : kriteria.risiko}
@@ -304,7 +339,9 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
       title="Ukur Lingkar Lengan Atas"
       id="ukur_lingkar_lengan_atas"
       info={
-        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
+        <CustomModal
+          icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}
+        >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
           <div className="space-y-2">
             <p>
@@ -325,8 +362,9 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
           </span>
         </div>
         <h4
-          className={`text-green-500 font-bold ${ukurLingkarLenganAtas.status !== "Normal" ? "text-amber-600" : ""
-            }`}
+          className={`text-green-500 font-bold ${
+            ukurLingkarLenganAtas.status !== "Normal" ? "text-amber-600" : ""
+          }`}
         >
           {ukurLingkarLenganAtas.status}
         </h4>
@@ -358,7 +396,6 @@ export const PemeriksaanMapper = ({ type, checkupData }) => {
   }
 };
 
-
 export const ListDetailPemeriksaan = ({ checkupData, checkedupList }) => {
   return (
     <>
@@ -368,8 +405,6 @@ export const ListDetailPemeriksaan = ({ checkupData, checkedupList }) => {
     </>
   );
 };
-
-
 
 export const Detail = ({ data }) => {
   const { id } = useParams();
@@ -382,7 +417,7 @@ export const Detail = ({ data }) => {
     getCheckUpListDataById(id, setCheckupListData);
   }, [id]);
 
-  if (!checkupData || checkupData === null) return <Loader />
+  if (!checkupData || checkupData === null) return <Loader />;
 
   return (
     <>
@@ -417,7 +452,11 @@ export const Detail = ({ data }) => {
                 <li className="flex space-x-2 items-center text-sky-800 font-medium">
                   <UserCircleIcon className="w-6" />
                   <span>
-                    {checkupData.pemeriksa.jabatan.toLowerCase().includes("dokter") ? "dr. " : ""}
+                    {checkupData.pemeriksa.jabatan
+                      .toLowerCase()
+                      .includes("dokter")
+                      ? "dr. "
+                      : ""}
                     {checkupData.pemeriksa.nama}
                   </span>
                 </li>
@@ -443,13 +482,25 @@ export const Detail = ({ data }) => {
 
                 <li>
                   Kondisi Ibu{" "}
-                  <span className={`${checkupData.kondisi_ibu == "Baik" ? "text-green-500" : "text-amber-500"}`}>
+                  <span
+                    className={`${
+                      checkupData.kondisi_ibu == "Baik"
+                        ? "text-green-500"
+                        : "text-amber-500"
+                    }`}
+                  >
                     {checkupData.kondisi_ibu}
                   </span>
                 </li>
                 <li>
                   Kondisi janin{" "}
-                  <span className={`${checkupData.kondisi_janin == "Baik" ? "text-green-500" : "text-amber-500"}`}>
+                  <span
+                    className={`${
+                      checkupData.kondisi_janin == "Baik"
+                        ? "text-green-500"
+                        : "text-amber-500"
+                    }`}
+                  >
                     {checkupData.kondisi_janin}
                     {/* <HealthAndSafety /> */}
                   </span>
@@ -462,9 +513,11 @@ export const Detail = ({ data }) => {
                 </span>
               </div>
               <div className="text-sm">
-                {checkupData.butuh_konseling
-                  ? <span className="text-amber-600">Butuh konseling</span>
-                  : <span className="text-green-500">Tidak butuh konseling</span>}
+                {checkupData.butuh_konseling ? (
+                  <span className="text-amber-600">Butuh konseling</span>
+                ) : (
+                  <span className="text-green-500">Tidak butuh konseling</span>
+                )}
               </div>
 
               <div className="p-2 bg-gray-50 rounded text-sm">
@@ -505,13 +558,28 @@ export const Detail = ({ data }) => {
               {Object.keys(checkupData.pemeriksaan_yang_dilakukan).map(
                 (pemeriksaan) => (
                   <li key={pemeriksaan} className="mr-2 mb-2">
-                    <a href={`#${pemeriksaan}`} className={`px-1 py-1 flex items-center rounded-full space-x-2 ${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? "bg-green-50" : "bg-gray-50 "}`}>
-                      <p className={`${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? "text-green-600" : "text-gray-300"}`}>
+                    <a
+                      href={`#${pemeriksaan}`}
+                      className={`px-1 py-1 flex items-center rounded-full space-x-2 ${
+                        checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                          ? "bg-green-50"
+                          : "bg-gray-50 "
+                      }`}
+                    >
+                      <p
+                        className={`${
+                          checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                            ? "text-green-600"
+                            : "text-gray-300"
+                        }`}
+                      >
                         {pemeriksaan.split("_").join(" ")}
                       </p>
-                      {checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                        ? <CheckCircleIcon className="w-5 text-green-400" />
-                        : <MinusCircleIcon className="w-5 text-gray-400"></MinusCircleIcon>}
+                      {checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? (
+                        <CheckCircleIcon className="w-5 text-green-400" />
+                      ) : (
+                        <MinusCircleIcon className="w-5 text-gray-400"></MinusCircleIcon>
+                      )}
                     </a>
                   </li>
                 )
@@ -522,7 +590,11 @@ export const Detail = ({ data }) => {
             {/* start list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
             <ListDetailPemeriksaan
               checkupData={checkupData}
-              checkedupList={Object.keys(checkupData).filter((key) => Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(key))}
+              checkedupList={Object.keys(checkupData).filter((key) =>
+                Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(
+                  key
+                )
+              )}
             />
             {/* end list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
           </div>

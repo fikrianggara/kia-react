@@ -3,35 +3,17 @@ import { showFormattedDate } from "@/utils/index";
 import React, { useState, useEffect } from "react";
 import { LineChart } from "@/components/Chart/LineChart";
 import { getPregnancyDataById, getCheckupDataById } from "@/api/data";
+import { CustomModal } from "@/components/CUstomModal";
+import {
+  MapPinIcon,
+  ArrowLeftIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 
-import { AccountCircle, ArrowBackOutlined, LocationOn, } from "@mui/icons-material";
-
-import { Modal, Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import moment from "moment-with-locales-es6";
-moment.locale("id");
+// import moment from "moment-with-locales-es6";
+// moment.locale("id");
 
-export default function CustomModal({ children, btn }) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <div>
-      <div onClick={handleOpen}>{btn}</div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] shadow bg-white h-fit w-96 rounded-lg p-4">
-          {children}
-        </Box>
-      </Modal>
-    </div>
-  );
-}
 export const Statistik = ({ data }) => {
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
@@ -40,6 +22,7 @@ export const Statistik = ({ data }) => {
   let pregnancyAge = 0;
   let lastCheckup = 0;
   let jarakHinggaKelahiran = 0;
+  console.log(data);
 
   useEffect(() => {
     getPregnancyDataById(id, setPregnancyData);
@@ -47,31 +30,35 @@ export const Statistik = ({ data }) => {
     getCheckupDataById(id, setCheckupListData);
   }, [id]);
   if (pregnancyData !== null) {
-    pregnancyAge = moment(
-      pregnancyData?.hari_pertama_haid_terakhir
-        ? pregnancyData?.hari_pertama_haid_terakhir
-        : new Date(),
-      "YYYY-MM-DD"
-    )
-      .fromNow()
-      .split(" ")
-      .splice(0, 2)
-      .join(" ");
-    lastCheckup = moment(
-      pregnancyData?.pemeriksaan_terakhir
-        ? pregnancyData?.pemeriksaan_terakhir.tanggal_pemeriksaan
-        : new Date()
-    )
-      .fromNow()
-      .split(" ")
-      .splice(0, 2)
-      .join(" ");
+    // pregnancyAge = moment(
+    //   pregnancyData?.hari_pertama_haid_terakhir
+    //     ? pregnancyData?.hari_pertama_haid_terakhir
+    //     : new Date(),
+    //   "YYYY-MM-DD"
+    // )
+    //   .fromNow()
+    //   .split(" ")
+    //   .splice(0, 2)
+    //   .join(" ");
+    pregnancyAge = 10;
+    // lastCheckup = moment(
+    //   pregnancyData?.pemeriksaan_terakhir
+    //     ? pregnancyData?.pemeriksaan_terakhir.tanggal_pemeriksaan
+    //     : new Date()
+    // )
+    //   .fromNow()
+    //   .split(" ")
+    //   .splice(0, 2)
+    //   .join(" ");
+    lastCheckup = 20;
 
-    jarakHinggaKelahiran = moment(
-      pregnancyData?.estimasi_tanggal_kelahiran
-        ? pregnancyData?.estimasi_tanggal_kelahiran
-        : new Date()
-    ).fromNow();
+    //   jarakHinggaKelahiran = moment(
+    //     pregnancyData?.estimasi_tanggal_kelahiran
+    //       ? pregnancyData?.estimasi_tanggal_kelahiran
+    //       : new Date()
+    //   ).fromNow();
+    // }
+    jarakHinggaKelahiran = 20;
   }
   console.log(checkupData);
   if (!pregnancyData || !checkupData) {
@@ -88,12 +75,12 @@ export const Statistik = ({ data }) => {
                 <div className="flex space-x-2 items-center ">
                   <div className=" space-y-1 ">
                     <div className="flex text-xs items-center">
-                      <AccountCircle></AccountCircle>
+                      <UserCircleIcon className="w-8 mr-2 mb-2" />
                       <h1 className="font-medium">{user.nama}</h1>
                     </div>
 
-                    <div className="flex text-xs items-center">
-                      <LocationOn />
+                    <div className="flex text-xs items-center ">
+                      <MapPinIcon className="w-8 mr-2 mb-2" />
                       <h1>{user.alamat}</h1>
                     </div>
                   </div>
@@ -148,7 +135,7 @@ patient profile start
                     to={`/ibu-anak/kehamilan/${user.id}`}
                     className="flex items-center space-x-2 active:bg-gray-200 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
                   >
-                    <ArrowBackOutlined></ArrowBackOutlined>
+                    <ArrowLeftIcon className="w-4" />
                     <span>Kembali</span>
                   </Link>
                 </div>
@@ -161,7 +148,15 @@ patient profile start
           {/* main */}
           <main className="p-4 bg-white">
             <div className="space-y-2">
-              <LineChart judul={"Tekanan Darah (mmHg)"} id="1" />
+              <LineChart judul={"Berat Badan (Kilogram)"} color="sky" id="1" />
+            </div>
+            <div className="space-y-2">
+              <LineChart
+                judul={"Tablet Tambah Darah (TTD)"}
+                color="pink"
+                data
+                id="1"
+              />
             </div>
             {/* <div className="space-y-2">
               <LineChart judul={"Gula Darah Puasa"} id="2" />

@@ -8,8 +8,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   CategoryScale,
@@ -21,29 +22,57 @@ ChartJS.register(
   Legend
 );
 
-export function LineChart({ judul }) {
-  const monthLabel = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
+function getDatesInRange(startDate, endDate) {
+  const date = new Date(startDate.getTime());
 
-  const data = {
-    labels: monthLabel,
+  const dates = [];
+
+  while (date <= endDate) {
+    dates.push(new Date(date));
+    date.setDate(date.getDate() + 1);
+  }
+
+  return dates;
+}
+
+export function LineChart({ judul, color, data }) {
+  const Labels = getDatesInRange(new Date("2022-10-29"), new Date());
+  let choosenColor;
+  switch (color) {
+    case "sky":
+      choosenColor = "#0369a1";
+      break;
+    case "pink":
+      choosenColor = "#0369a1";
+      break;
+    case "green":
+      choosenColor = "#22c55e";
+      break;
+    case "amber":
+      choosenColor = "#d97706";
+      break;
+    default:
+      choosenColor = "#0369a1";
+      break;
+  }
+  const dataUser = {
+    labels: Labels,
     datasets: [
       {
         label: `${judul}`,
-        backgroundColor: "#ed64a6",
-        borderColor: "#ed64a6",
-        data: [65, 78, 66, 44, 56, 67, 75],
+        backgroundColor: choosenColor,
+        borderColor: choosenColor,
+        data: Labels.map(() =>
+          faker.datatype.number(
+            judul == "Berat Badan (Kilogram)"
+              ? { min: 45, max: 50 }
+              : { min: 10, max: 100 }
+          )
+        ),
         fill: false,
       },
     ],
-  }
+  };
 
   const options = {
     maintainAspectRatio: false,
@@ -110,7 +139,7 @@ export function LineChart({ judul }) {
         },
       },
     },
-  }
+  };
 
   return (
     <>
@@ -126,7 +155,7 @@ export function LineChart({ judul }) {
         </div>
         <div className="p-4 flex-auto">
           <div className="relative h-350-px">
-            <Line options={options} data={data} />
+            <Line options={options} data={dataUser} />
           </div>
         </div>
       </div>
