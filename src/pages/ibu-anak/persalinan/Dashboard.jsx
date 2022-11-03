@@ -137,18 +137,14 @@ export const PersalinanDashboard = ({ data: userData }) => {
         <div className="border rounded-lg p-4 space-y-2">
           <div className="flex text-sky-800 font-medium items-center justify-between">
             <h3>Detail Persalinan</h3>
-          </div>
-          <div className="space-y-3">
             <div className="flex justify-between text-sm">
               <div className="flex space-x-2 items-center text-sky-800 font-medium">
                 <UserCircleIcon className="w-8" />
                 <span>Bidan Resti</span>
               </div>
-              <div className="mr-2">
-                {showFormattedDate(new Date())}
-              </div>
             </div>
-
+          </div>
+          <div className="space-y-3">
             <div className="space-y-2 text-gray-600">
               <div className="flex">
                 <table className="m-auto text-sm text-left w-full border border-gray-200">
