@@ -8,12 +8,12 @@ export const PregnancySelection = ({ preganciesData = [] }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="h-8">
-        <Menu.Button className="w-full justify-center rounded-md h-full bg-black bg-opacity-20 px-4 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-          <div className="flex align-middle ">
-            <span className="flex flex-col mb-0 text-xs">
+        <Menu.Button className="w-full justify-center rounded-md h-full bg-black bg-opacity-20 px-2 sm:px-4 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <div className="flex align-middle space-x-2 w-fit">
+            <span className="mb-0 text-xs ">
               Kehamilan {pregnancy?.kehamilan_ke}
             </span>
-            <ChevronDownIcon className="ml-2 -mr-1 w-4 text-violet-200 hover:text-violet-100" />
+            <ChevronDownIcon className="w-4 text-violet-200 hover:text-violet-100" />
           </div>
         </Menu.Button>
       </div>
