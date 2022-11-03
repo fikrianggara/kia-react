@@ -95,7 +95,8 @@ export const Statistik = ({ data }) => {
 
           {/* main */}
           <main className="p-4 bg-white">
-            <div className="flex justify-between mb-4">
+            <div className="flex space-x-3 mb-4">
+              <AddBodyWeight />
               {isConfirmed ? (
                 <button
                   disabled
@@ -115,7 +116,6 @@ export const Statistik = ({ data }) => {
                   Konfirmasi TTD
                 </button>
               )}
-              <AddBodyWeight />
             </div>
             <div className="space-y-2">
               <LineChart judul={"Berat Badan (Kilogram)"} color="sky" id="1" />

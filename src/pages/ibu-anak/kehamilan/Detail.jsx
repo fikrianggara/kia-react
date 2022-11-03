@@ -8,7 +8,7 @@ import { CustomModal } from "@/components/CustomModal";
 import { ToTopButton } from "@/components/ToTopButton";
 import PemeriksaanCard from "@/components/ibu-anak/PemeriksaanCard";
 import UsgDummy from "@/assets/ibu-anak/usg_dummy.jpeg";
-
+import dummyRekamMedis from "@/assets/ibu-anak/rekam_medis_dummy.png";
 import {
   MapPinIcon,
   ArrowLeftIcon,
@@ -551,7 +551,34 @@ export const Detail = ({ data }) => {
         {/* main */}
         <main className="p-4 bg-white" id="main">
           <div className="space-y-2">
-            <h2 className="text-sky-800 font-medium">Pemeriksaan</h2>
+            <div className="flex justify-between ">
+              <h2 className="text-sky-800 font-medium">Pemeriksaan</h2>
+              <CustomModal
+                icon={
+                  <div className="bg-sky-50 flex py-1 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs sm:text-s">
+                    <ArrowDownTrayIcon className="w-6 mr-2" />
+                    Download rekam medis
+                  </div>
+                }
+              >
+                <div className="flex-rows space-y-2">
+                  <img
+                    src={dummyRekamMedis}
+                    alt="hasil usg"
+                    className="w-full aspect-auto m-auto rounded"
+                  />
+                  <div>
+                    <a href={dummyRekamMedis} download="rekam medis">
+                      <div className="bg-sky-50 flex py-1 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs sm:text-s">
+                        <ArrowDownTrayIcon className="w-6 mr-2" />
+                        Download rekam medis
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </CustomModal>
+            </div>
+
             {/* start list pemeriksaan yang dilakukan */}
             <ul className="flex flex-wrap  text-sm p-4">
               {Object.keys(checkupData.pemeriksaan_yang_dilakukan).map(
