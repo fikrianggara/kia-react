@@ -228,7 +228,6 @@ export const PemeriksaanFisik = ({ fisik }) => {
 };
 
 export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
-  console.log(skriningPreeklampsia);
   return (
     <PemeriksaanCard
       title="Screening Preeklampsia"
