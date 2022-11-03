@@ -1,36 +1,29 @@
 import { Link } from "react-router-dom";
+import Loader from "@/components/Loader";
 import { useParams } from "react-router-dom";
-import moment from "moment-with-locales-es6";
+import { showFormattedDate } from "@/utils/index";
 import React, { useState, useEffect } from "react";
-import { showFormattedDate } from "../../../utils/index";
-import PemeriksaanCard from "../../../components/ibu-anak/PemeriksaanCard";
-import { CustomModal } from "../../../components/CustomModal";
-import { getCheckUpListDataById } from "../../../api/data";
-import { ToTopButton } from "../../../components/ToTopButton";
-import {
-  AccountCircle,
-  ArrowBackOutlined,
-  LocationOn,
-  HealthAndSafety,
-  AddLocation,
-  CheckCircle,
-  RemoveCircle,
-  HelpOutline,
-  Download,
-} from "@mui/icons-material";
+import { getCheckUpListDataById } from "@/api/data";
+import { CustomModal } from "@/components/CustomModal";
+import { ToTopButton } from "@/components/ToTopButton";
+import PemeriksaanCard from "@/components/ibu-anak/PemeriksaanCard";
 
-moment.locale("id");
+import {
+  MapPinIcon,
+  ArrowLeftIcon,
+  UserCircleIcon,
+  CheckCircleIcon,
+  MinusCircleIcon,
+  QuestionMarkCircleIcon,
+  ArrowDownTrayIcon,
+} from "@heroicons/react/24/outline"
 
 export const PemeriksaanTimbang = ({ timbang }) => {
   return (
     <PemeriksaanCard
       title="Timbang"
       info={
-        <CustomModal
-          btn={
-            <HelpOutline fontSize="medium" className="hover:cursor-pointer" />
-          }
-        >
+        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">Index Massa Tubuh</h2>
           <div className="space-y-2 p-2">
             <p className="text-sm">
@@ -65,11 +58,7 @@ export const PemeriksaanTimbang = ({ timbang }) => {
           <li>{timbang.berat.nilai + " " + timbang.berat.satuan}</li>
           <li>{timbang.tinggi.nilai + " " + timbang.tinggi.satuan}</li>
         </ul>
-        <h4
-          className={`${
-            timbang.imt == "Normal" ? "text-green-500 font-bold" : ""
-          }`}
-        >
+        <h4 className={`${timbang.imt == "Normal" ? "text-green-500 font-bold" : ""}`}>
           {timbang.imt}
         </h4>
       </div>
@@ -82,11 +71,7 @@ export const PemeriksaanUSG = ({ usg }) => {
     <PemeriksaanCard
       title="USG"
       info={
-        <CustomModal
-          btn={
-            <HelpOutline fontSize="medium" className="hover:cursor-pointer" />
-          }
-        >
+        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">USG</h2>
           <div className="space-y-2">
             <p>
@@ -104,8 +89,8 @@ export const PemeriksaanUSG = ({ usg }) => {
             <h4>Meliputi :</h4>
             <div className="w-4/12">
               <Link to={usg.link_hasil_usg}>
-                <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
-                  <Download></Download>Hasil USG
+                <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg py-2 px-3">
+                  <ArrowDownTrayIcon className="w-4" />Hasil USG
                 </button>
               </Link>
             </div>
@@ -131,11 +116,7 @@ export const PemeriksaanFisik = ({ fisik }) => {
     <PemeriksaanCard
       title="Fisik"
       info={
-        <CustomModal
-          btn={
-            <HelpOutline fontSize="medium" className="hover:cursor-pointer" />
-          }
-        >
+        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">Fisik</h2>
           <div className="space-y-2">
             <p>
@@ -150,13 +131,9 @@ export const PemeriksaanFisik = ({ fisik }) => {
       }
     >
       <div>
-        <div className="flex justify-between p-2">
+        <div className="flex justify-between mb-4">
           <span>Keadaan Umum</span>
-          <span
-            className={`text-green-500 font-bold ${
-              fisik.keadaan_umum !== "Semuanya Normal" ? "text-amber-600" : ""
-            }`}
-          >
+          <span className={`text-green-500 font-bold ${fisik.keadaan_umum !== "Semuanya Normal" ? "text-amber-600" : ""}`}>
             {fisik.keadaan_umum}
           </span>
         </div>
@@ -177,9 +154,8 @@ export const PemeriksaanFisik = ({ fisik }) => {
                     <tr key={item.nama}>
                       <td>{item.nama}</td>
                       <td
-                        className={`text-green-500  ${
-                          item.keadaan !== "Normal" ? "text-amber-600" : ""
-                        }`}
+                        className={`text-green-500  ${item.keadaan !== "Normal" ? "text-amber-600" : ""
+                          }`}
                       >
                         {item.keadaan}
                       </td>
@@ -202,11 +178,7 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
     <PemeriksaanCard
       title="skriningPreeklampsia"
       info={
-        <CustomModal
-          btn={
-            <HelpOutline fontSize="medium" className="hover:cursor-pointer" />
-          }
-        >
+        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
           <div className="space-y-2">
             <p>
@@ -232,11 +204,7 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
     <PemeriksaanCard
       title="Ukur Lingkar Lengan Atas"
       info={
-        <CustomModal
-          btn={
-            <HelpOutline fontSize="medium" className="hover:cursor-pointer" />
-          }
-        >
+        <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
           <div className="space-y-2">
             <p>
@@ -280,29 +248,32 @@ export const PemeriksaanMapper = ({ type, checkupData }) => {
   }
 };
 
+
 export const ListDetailPemeriksaan = ({ checkupData, checkedupList }) => {
-  return checkedupList.map((checkup) => (
-    <PemeriksaanMapper key={checkup} checkupData={checkupData} type={checkup} />
-  ));
+  return (
+    <>
+      {checkedupList.map((checkup, id) => (
+        <PemeriksaanMapper key={id} checkupData={checkupData} type={checkup} />
+      ))}
+    </>
+  );
 };
+
+
+
 export const Detail = ({ data }) => {
   const { id } = useParams();
+
   const user = data[0] ? data[0] : null;
+
   const [checkupData, setCheckupListData] = useState(null);
 
-  console.log(
-    checkupData &&
-      Object.keys(checkupData).filter((key) =>
-        Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(key)
-      )
-  );
   useEffect(() => {
     getCheckUpListDataById(id, setCheckupListData);
   }, [id]);
 
-  if (!checkupData) {
-    return <span>loading...</span>;
-  }
+  if (!checkupData || checkupData === null) return <Loader />
+
   return (
     <>
       <div className="space-y-4 relative">
@@ -313,12 +284,12 @@ export const Detail = ({ data }) => {
               <div className="flex space-x-2 items-center ">
                 <div className=" space-y-1 ">
                   <div className="flex text-xs items-center">
-                    <AccountCircle></AccountCircle>
+                    <UserCircleIcon className="w-8 mb-2" />
                     <h1 className="font-medium">{user.nama}</h1>
                   </div>
 
                   <div className="flex text-xs items-center">
-                    <LocationOn />
+                    <MapPinIcon className="w-8" />
                     <h1>{user.alamat}</h1>
                   </div>
                 </div>
@@ -334,26 +305,25 @@ export const Detail = ({ data }) => {
             <div className="space-y-4">
               <ul className="grid grid-cols-2 text-sm space-y-2 items-center">
                 <li className="flex space-x-2 items-center text-sky-800 font-medium">
-                  <AccountCircle></AccountCircle>
+                  <UserCircleIcon className="w-6" />
                   <span>
-                    {checkupData.pemeriksa.jabatan
-                      .toLowerCase()
-                      .includes("dokter")
-                      ? "dr. "
-                      : ""}
+                    {checkupData.pemeriksa.jabatan.toLowerCase().includes("dokter") ? "dr. " : ""}
                     {checkupData.pemeriksa.nama}
                   </span>
                 </li>
-                <li>
-                  <p>
-                    <AddLocation />
+                <li className="flex items-center text-sky-800 font-medium">
+                  <MapPinIcon className="min-w-6 w-6 h-6 mr-2" />
+                  <div className="flex-1 ">
                     {checkupData.tempat.nama}, {checkupData.tempat.alamat}
-                  </p>
+                  </div>
                 </li>
+
                 <li className="">Trimester ke {checkupData.trimester}</li>
 
                 <li>Minggu pemeriksaan ke {checkupData.minggu_pemeriksaan}</li>
+                
                 <li>Urutan pemeriksaan ke {checkupData.urutan_pemeriksaan}</li>
+                
                 <li>
                   Usia Kandungan{" "}
                   <span className="font-medium">
@@ -363,28 +333,15 @@ export const Detail = ({ data }) => {
 
                 <li>
                   Kondisi Ibu{" "}
-                  <span
-                    className={`${
-                      checkupData.kondisi_ibu == "Baik"
-                        ? "text-green-500"
-                        : "text-amber-500"
-                    }`}
-                  >
+                  <span className={`${checkupData.kondisi_ibu == "Baik" ? "text-green-500" : "text-amber-500"}`}>
                     {checkupData.kondisi_ibu}
-                    <HealthAndSafety />
                   </span>
                 </li>
                 <li>
                   Kondisi janin{" "}
-                  <span
-                    className={`${
-                      checkupData.kondisi_janin == "Baik"
-                        ? "text-green-500"
-                        : "text-amber-500"
-                    }`}
-                  >
+                  <span className={`${checkupData.kondisi_janin == "Baik" ? "text-green-500" : "text-amber-500"}`}>
                     {checkupData.kondisi_janin}
-                    <HealthAndSafety />
+                    {/* <HealthAndSafety /> */}
                   </span>
                 </li>
               </ul>
@@ -395,11 +352,9 @@ export const Detail = ({ data }) => {
                 </span>
               </div>
               <div className="text-sm">
-                {checkupData.butuh_konseling ? (
-                  <span className="text-amber-600">Butuh konseling</span>
-                ) : (
-                  <span className="text-green-500">Tidak butuh konseling</span>
-                )}
+                {checkupData.butuh_konseling
+                  ? <span className="text-amber-600">Butuh konseling</span>
+                  : <span className="text-green-500">Tidak butuh konseling</span>}
               </div>
 
               <div className="p-2 bg-gray-50 rounded text-sm">
@@ -422,7 +377,7 @@ export const Detail = ({ data }) => {
                   to={`/ibu-anak/kehamilan/${user.id}`}
                   className="flex items-center space-x-2 active:bg-gray-200 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
                 >
-                  <ArrowBackOutlined></ArrowBackOutlined>
+                  <ArrowLeftIcon className="w-8" />
                   <span>Kembali</span>
                 </Link>
               </div>
@@ -440,28 +395,13 @@ export const Detail = ({ data }) => {
               {Object.keys(checkupData.pemeriksaan_yang_dilakukan).map(
                 (pemeriksaan) => (
                   <li key={pemeriksaan} className="mr-2 mb-2">
-                    <a
-                      href={`#${pemeriksaan}`}
-                      className={`px-1 py-1 flex items-center rounded-full space-x-2 ${
-                        checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                          ? "bg-green-50"
-                          : "bg-gray-50 "
-                      }`}
-                    >
-                      <p
-                        className={`${
-                          checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
-                            ? "text-green-600"
-                            : "text-gray-300"
-                        }`}
-                      >
+                    <a href={`#${pemeriksaan}`} className={`px-1 py-1 flex items-center rounded-full space-x-2 ${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? "bg-green-50" : "bg-gray-50 "}`}>
+                      <p className={`${checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? "text-green-600" : "text-gray-300"}`}>
                         {pemeriksaan.split("_").join(" ")}
                       </p>
-                      {checkupData.pemeriksaan_yang_dilakukan[pemeriksaan] ? (
-                        <CheckCircle className="text-green-400" />
-                      ) : (
-                        <RemoveCircle className="text-gray-300"></RemoveCircle>
-                      )}
+                      {checkupData.pemeriksaan_yang_dilakukan[pemeriksaan]
+                        ? <CheckCircleIcon className="w-5 text-green-400" />
+                        : <MinusCircleIcon className="w-5 text-gray-400"></MinusCircleIcon>}
                     </a>
                   </li>
                 )
@@ -472,11 +412,7 @@ export const Detail = ({ data }) => {
             {/* start list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
             <ListDetailPemeriksaan
               checkupData={checkupData}
-              checkedupList={Object.keys(checkupData).filter((key) =>
-                Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(
-                  key
-                )
-              )}
+              checkedupList={Object.keys(checkupData).filter((key) => Object.keys(checkupData.pemeriksaan_yang_dilakukan).includes(key))}
             />
             {/* end list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
           </div>

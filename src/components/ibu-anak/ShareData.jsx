@@ -11,9 +11,9 @@ export const ShareData = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="justify-center align-middle rounded-md bg-black bg-opacity-20 w-10 h-10 text-xs font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        className="flex flex-col justify-center align-middle rounded-md h-8 w-8 bg-black bg-opacity-20 text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        <ShareIcon className="m-2" />
+        <ShareIcon className="flex w-4 h-4 m-2" />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>

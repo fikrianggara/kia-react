@@ -1,12 +1,12 @@
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import { getUserData } from "@/api/data";
+import Loader from "@/components/Loader";
 import { MenuIbuAnak } from "@/pages/ibu-anak";
 import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Loader from "@/components/Loader";
-// import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
-// import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
+import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
+import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
 // import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
 
 function App() {
@@ -25,16 +25,16 @@ function App() {
 
         <Route path="/ibu-anak" exact element={<MenuIbuAnak data={user} />} />
 
-        {/* <Route
+        <Route
           path="/ibu-anak/kehamilan/:id"
           exact
           element={<KehamilanDashboard data={user} />}
-        /> */}
-        {/* <Route
+        />
+        <Route
           path="/ibu-anak/kehamilan/detail/:id"
           exact
           element={<Detail data={user} />}
-        /> */}
+        />
         {/* <Route
           path="/ibu-anak/kehamilan/statistik/:id"
           exact
