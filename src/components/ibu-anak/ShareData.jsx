@@ -1,4 +1,3 @@
-import { MenuItem } from "../menu/Item";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { UserCircleIcon, ShareIcon } from "@heroicons/react/24/outline";
@@ -92,7 +91,7 @@ export const ShareData = () => {
                       </div>
                     </div>
                     <div className="flex justify-between">
-                      <button className="bg-red-500 hover:bg-red-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md">
+                      <button onClick={() => setIsOpen(false)} className="bg-red-500 hover:bg-red-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md">
                         Batal
                       </button>
                       <button className="bg-sky-500 hover:bg-sky-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md">

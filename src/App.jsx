@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import { Detail } from "./pages/ibu-anak/kehamilan/Detail";
 import { KehamilanDashboard } from "./pages/ibu-anak/kehamilan";
 import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
-// import { Statistik } from "./pages/ibu-anak/kehamilan/Statistik";
+import { PersalinanDashboard } from "./pages/ibu-anak/persalinan/Dashboard";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -41,11 +41,12 @@ function App() {
           exact
           element={<Statistik data={user} />}
         />
-        {/* <Route
-          path="/ibu-anak/kehamilan/statistik/:id"
+
+        <Route
+          path="/ibu-anak/persalinan/:id"
           exact
-          element={<Statistik data={user} />}
-        /> */}
+          element={<PersalinanDashboard data={user} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
