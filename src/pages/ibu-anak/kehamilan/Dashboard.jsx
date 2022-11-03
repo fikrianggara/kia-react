@@ -166,7 +166,7 @@ export const Dashboard = ({ data }) => {
                   </div>
                   <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[20%]">
+                <div className="mt-3 -ml-[20%]">
                   <span className="block mb-2 font-normal leading-none text-sky-400 dark:text-gray-500">
                     Trimester 1
                   </span>
@@ -202,7 +202,7 @@ export const Dashboard = ({ data }) => {
                 <div className="flex items-center">
                   <div className="flex z-10 justify-center items-center w-6 h-6 bg-gray-200 rounded-full ring-0 ring-white dark:bg-sky-900 sm:ring-8 dark:ring-gray-900 shrink-0"></div>
                 </div>
-                <div className="mt-3 sm:pr-8 -ml-[20%] text-clip">
+                <div className="mt-3 -ml-[20%] text-clip">
                   <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500 ">
                     {
                       showFormattedDate(
