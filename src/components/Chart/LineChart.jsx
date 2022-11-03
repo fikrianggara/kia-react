@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import { getDatesInRange } from "@/utils";
 
 ChartJS.register(
   CategoryScale,
@@ -22,28 +23,18 @@ ChartJS.register(
   Legend
 );
 
-function getDatesInRange(startDate, endDate) {
-  const date = new Date(startDate.getTime());
-
-  const dates = [];
-
-  while (date <= endDate) {
-    dates.push(new Date(date));
-    date.setDate(date.getDate() + 1);
-  }
-
-  return dates;
-}
-
 export function LineChart({ judul, color, data }) {
-  const Labels = getDatesInRange(new Date("2022-10-29"), new Date());
+  const Labels = getDatesInRange(new Date("2022-10-29"), new Date()).map(
+    (item) =>
+      item.getUTCDate() + "/" + item.getUTCMonth() + "/" + item.getUTCFullYear()
+  );
   let choosenColor;
   switch (color) {
     case "sky":
       choosenColor = "#0369a1";
       break;
     case "pink":
-      choosenColor = "#0369a1";
+      choosenColor = "rgb(255, 99, 132)";
       break;
     case "green":
       choosenColor = "#22c55e";
@@ -143,7 +134,7 @@ export function LineChart({ judul, color, data }) {
 
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded bg-gray-50 ">
+      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded border">
         <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">

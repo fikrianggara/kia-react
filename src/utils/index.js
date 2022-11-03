@@ -1,8 +1,8 @@
 /**
  * show formatted date, long weekday, numeric year, long month, numeric day
- * 
- * @param {*} date 
- * @returns 
+ *
+ * @param {*} date
+ * @returns
  */
 export const showFormattedDate = (date) => {
   //date is on ISO format
@@ -15,12 +15,35 @@ export const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options);
 };
 
+export function getDatesInRange(startDate, endDate) {
+  const date = new Date(startDate.getTime());
+
+  const dates = [];
+
+  while (date <= endDate) {
+    dates.push(new Date(date));
+    date.setDate(date.getDate() + 1);
+  }
+
+  return dates;
+}
+
+export const showShortFormattedDate = (date) => {
+  //date is on ISO format
+  const options = {
+    weekday: "numeric",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  };
+  return new Date(date).toLocaleDateString("id-ID", options);
+};
 
 /**
  * show formatted date with hours
- * 
- * @param {*} date 
- * @returns 
+ *
+ * @param {*} date
+ * @returns
  */
 export const showFormattedDateWithHours = (date) => {
   //date is on ISO format
@@ -35,11 +58,10 @@ export const showFormattedDateWithHours = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options);
 };
 
-
 /**
  * create Date Object from "DD/MM/YYYY" string format
- * 
- * @param {*} date 
+ *
+ * @param {*} date
  * @returns Date
  */
 export const formatDate = (date) => {

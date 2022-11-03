@@ -1,10 +1,15 @@
 import { useParams } from "react-router-dom";
-import { showFormattedDate } from "@/utils/index";
+import { getDatesInRange, showFormattedDate } from "@/utils/index";
 import React, { useState, useEffect } from "react";
 import { LineChart } from "@/components/Chart/LineChart";
 import { getPregnancyDataById, getCheckupDataById } from "@/api/data";
-import { MapPinIcon, ArrowLeftIcon, UserCircleIcon, } from "@heroicons/react/24/outline";
+import {
+  MapPinIcon,
+  ArrowLeftIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 
+import { CalendarCustom } from "@/components/Chart/Calendar";
 import { Link } from "react-router-dom";
 import Loader from "@/components/Loader";
 
@@ -24,8 +29,8 @@ export const Statistik = ({ data }) => {
     getCheckupDataById(id, setCheckupListData);
   }, [id]);
 
-  if (!pregnancyData || !checkupData) <Loader />
-  
+  if (!pregnancyData || !checkupData) <Loader />;
+
   return (
     <>
       {pregnancyData && checkupData ? (
@@ -110,12 +115,18 @@ export const Statistik = ({ data }) => {
             <div className="space-y-2">
               <LineChart judul={"Berat Badan (Kilogram)"} color="sky" id="1" />
             </div>
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <LineChart
                 judul={"Tablet Tambah Darah (TTD)"}
                 color="pink"
                 data
                 id="1"
+              />
+            </div> */}
+            <div className="space-y-2  p-2 rounded border font-medium">
+              <h2 className="text-lg">Tablet Tambah Darah (TTD)</h2>
+              <CalendarCustom
+                datesInput={getDatesInRange(new Date("2022-10-15"), new Date())}
               />
             </div>
             {/* <div className="space-y-2">
