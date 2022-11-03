@@ -7,6 +7,7 @@ import { getCheckUpListDataById } from "@/api/data";
 import { CustomModal } from "@/components/CustomModal";
 import { ToTopButton } from "@/components/ToTopButton";
 import PemeriksaanCard from "@/components/ibu-anak/PemeriksaanCard";
+import UsgDummy from "@/assets/ibu-anak/usg_dummy.jpeg";
 
 import {
   MapPinIcon,
@@ -22,6 +23,7 @@ export const PemeriksaanTimbang = ({ timbang }) => {
   return (
     <PemeriksaanCard
       title="Timbang"
+      id="timbang"
       info={
         <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">Index Massa Tubuh</h2>
@@ -70,6 +72,7 @@ export const PemeriksaanUSG = ({ usg }) => {
   return (
     <PemeriksaanCard
       title="USG"
+      id="usg"
       info={
         <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">USG</h2>
@@ -83,28 +86,63 @@ export const PemeriksaanUSG = ({ usg }) => {
         </CustomModal>
       }
     >
-      <div className="flex justify-between p-2">
-        <div className="text-start">
-          <div className="flex justify-between align-middle">
+      <div className="flex justify-between">
+        <div className="text-start space-y-2 w-full">
+          <div className="flex justify-between items-center w-full">
             <h4>Meliputi :</h4>
-            <div className="w-4/12">
-              <Link to={usg.link_hasil_usg}>
-                <button className=" w-full bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg py-2 px-3">
-                  <ArrowDownTrayIcon className="w-4" />Hasil USG
-                </button>
-              </Link>
+            <div className="">
+              <CustomModal
+                icon={
+                  <span className=" w-full hover:cursor-pointer bg-sky-50 flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3 text-sm">
+                    Hasil USG
+                  </span>
+                }
+              >
+                <h2 className="text-sky-800 font-medium">USG</h2>
+                <div className="flex-rows space-y-2">
+                  <img
+                    src={UsgDummy}
+                    alt="hasil usg"
+                    className="w-full aspect-auto m-auto rounded"
+                  />
+                  <div>
+                    <div className=" hover:cursor-pointer text-xs bg-sky-100 hover:bg-sky-200 transition-all duration-150 text-sky-500 rounded-lg p-1 px-3">
+                      <div className="flex flex-row items-center justify-center">
+                        <ArrowDownTrayIcon className="w-6 mr-2" />
+                        Download
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CustomModal>
             </div>
           </div>
-          <ul className="text-sm mt-4 flex flex-wrap">
-            {usg.pemeriksaan.map((item) => (
-              <li
-                key={item.nama}
-                className="px-2 py-1 mb-2 mr-2 bg-gray-100 rounded"
-              >
-                {item.nama}
-              </li>
-            ))}
-          </ul>
+          <div>
+            <table className="text-sm text-left m-auto w-full">
+              <thead>
+                <tr className="border p-2">
+                  <th key="usg-nama" className="p-2">
+                    Nama
+                  </th>
+                  <th key="usg-nilai" className="p-2">
+                    Nilai
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {usg.pemeriksaan.map((item) => {
+                  return (
+                    <tr key={item.nama} className="border p-2">
+                      <td className="p-2">{item.nama}</td>
+                      <td className="p-2">
+                        {`${item.nilai} ${item.satuan ? item.satuan : ""}`}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </PemeriksaanCard>
@@ -115,6 +153,7 @@ export const PemeriksaanFisik = ({ fisik }) => {
   return (
     <PemeriksaanCard
       title="Fisik"
+      id="fisik"
       info={
         <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />}>
           <h2 className="text-sky-800 font-medium">Fisik</h2>
@@ -137,26 +176,25 @@ export const PemeriksaanFisik = ({ fisik }) => {
             {fisik.keadaan_umum}
           </span>
         </div>
-        <div>
+        <div className="text-regular">
           <h2>Pemeriksaan</h2>
-          <div className="flex">
-            <table className="text-sm m-auto w-3/4 bg-blue-200 rounded-lg border">
+          <div className="flex mt-4">
+            <table className="text-sm m-auto w-full">
               <thead>
-                <tr>
+                <tr className="border text-left">
                   {Object.keys(fisik.pemeriksaan[0]).map((kolom) => (
-                    <th>{kolom}</th>
+                    <th key={kolom} className="p-2">
+                      {kolom}
+                    </th>
                   ))}
                 </tr>
               </thead>
               <tbody className="text-gray-400">
                 {fisik.pemeriksaan.map((item) => {
                   return (
-                    <tr key={item.nama}>
-                      <td>{item.nama}</td>
-                      <td
-                        className={`text-green-500  ${item.keadaan !== "Normal" ? "text-amber-600" : ""
-                          }`}
-                      >
+                    <tr key={item.nama} className="border p-2">
+                      <td className="p-2">{item.nama}</td>
+                      <td className={`text-green-500  ${item.keadaan !== "Normal" ? "text-amber-600" : ""}`}>
                         {item.keadaan}
                       </td>
                     </tr>
@@ -165,8 +203,6 @@ export const PemeriksaanFisik = ({ fisik }) => {
               </tbody>
             </table>
           </div>
-
-          {JSON.stringify(fisik)}
         </div>
       </div>
     </PemeriksaanCard>
@@ -174,9 +210,11 @@ export const PemeriksaanFisik = ({ fisik }) => {
 };
 
 export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
+  console.log(skriningPreeklampsia);
   return (
     <PemeriksaanCard
-      title="skriningPreeklampsia"
+      title="Screening Preeklampsia"
+      id="skrining_preeklampsia"
       info={
         <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
@@ -192,8 +230,69 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
         </CustomModal>
       }
     >
-      <div className="flex justify-between p-2">
-        {JSON.stringify(skriningPreeklampsia)}
+      <div className="space-y-3">
+        <div className="flex justify-between text-sm">
+          <div className="flex space-x-2 items-center text-sky-800 font-medium">
+            <UserCircleIcon className="w-8" />
+            <span>{skriningPreeklampsia.nama_dokter}</span>
+          </div>
+          <div className="mr-2">
+            {showFormattedDate(skriningPreeklampsia.tanggal_pemeriksaan)}
+          </div>
+        </div>
+
+        <div className="p-2 bg-sky-50 rounded text-sm">
+          <p className="mb-3 font-normal text-sky-500 dark:text-gray-400">
+            Berdasarkan skrining, diperoleh informasi bahwa{" "}
+            {skriningPreeklampsia.kesimpulan}
+          </p>
+        </div>
+        <ul className="flex space-x-2 text-gray-600">
+          <li>
+            <span
+              className={`text-green-500 ${skriningPreeklampsia.jumlah_risiko_sedang == 0 ? "" : "text-amber-600"}`}>
+              {skriningPreeklampsia.jumlah_risiko_sedang == 0
+                ? "tidak ada"
+                : skriningPreeklampsia.jumlah_risiko_sedang}
+            </span>{" "}
+            resiko sedang
+          </li>
+          <li>
+            <span className={`text-green-500 ${skriningPreeklampsia.jumlah_risiko_berat == 0 ? "" : "text-amber-600"}`}>
+              {skriningPreeklampsia.jumlah_risiko_berat == 0
+                ? "tidak ada"
+                : skriningPreeklampsia.jumlah_risiko_berat}
+            </span>{" "}
+            resiko berat
+          </li>
+        </ul>
+        <div className="space-y-2 text-gray-600">
+          <h2 className="font-bold mt-4">Pemeriksaan kriteria amnesis</h2>
+          <div className="flex">
+            <table className="m-auto text-sm text-left w-full border">
+              <thead>
+                <tr>
+                  <th className="p-2">Nama</th>
+                  <th className="w-2/4 p-2">Resiko</th>
+                </tr>
+              </thead>
+              <tbody>
+                {skriningPreeklampsia.kriteria_anamnesis.map((kriteria) => {
+                  return (
+                    <tr key={`skrining-${kriteria.nama}`} className="border">
+                      <td className="p-2">{kriteria.nama}</td>
+                      <td className={`w-2/4 p-2 text-green-500${kriteria.risiko == null ? "" : "text-amber-500"}`}>
+                        {kriteria.risiko == null
+                          ? "tidak ada"
+                          : kriteria.risiko}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </PemeriksaanCard>
   );
@@ -203,6 +302,7 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
   return (
     <PemeriksaanCard
       title="Ukur Lingkar Lengan Atas"
+      id="ukur_lingkar_lengan_atas"
       info={
         <CustomModal icon={<QuestionMarkCircleIcon className="hover:cursor-pointer w-6" />} >
           <h2 className="text-sky-800 font-medium">Skrining Preeklampsia</h2>
@@ -219,7 +319,17 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
       }
     >
       <div className="flex justify-between p-2">
-        {JSON.stringify(ukurLingkarLenganAtas)}
+        <div className="flex space-x-4">
+          <span>
+            {ukurLingkarLenganAtas.nilai + " " + ukurLingkarLenganAtas.satuan}
+          </span>
+        </div>
+        <h4
+          className={`text-green-500 font-bold ${ukurLingkarLenganAtas.status !== "Normal" ? "text-amber-600" : ""
+            }`}
+        >
+          {ukurLingkarLenganAtas.status}
+        </h4>
       </div>
     </PemeriksaanCard>
   );
@@ -321,9 +431,9 @@ export const Detail = ({ data }) => {
                 <li className="">Trimester ke {checkupData.trimester}</li>
 
                 <li>Minggu pemeriksaan ke {checkupData.minggu_pemeriksaan}</li>
-                
+
                 <li>Urutan pemeriksaan ke {checkupData.urutan_pemeriksaan}</li>
-                
+
                 <li>
                   Usia Kandungan{" "}
                   <span className="font-medium">
@@ -387,7 +497,7 @@ export const Detail = ({ data }) => {
         </header>
         {/* patient overview end */}
         {/* main */}
-        <main className="p-4 bg-white">
+        <main className="p-4 bg-white" id="main">
           <div className="space-y-2">
             <h2 className="text-sky-800 font-medium">Pemeriksaan</h2>
             {/* start list pemeriksaan yang dilakukan */}
@@ -416,10 +526,10 @@ export const Detail = ({ data }) => {
             />
             {/* end list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
           </div>
-          <ToTopButton reference="#header"></ToTopButton>
         </main>
         {/* main end */}
         <footer></footer>
+        <ToTopButton reference="#main" />
       </div>
     </>
   );
