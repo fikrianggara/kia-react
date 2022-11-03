@@ -3,67 +3,29 @@ import { showFormattedDate } from "@/utils/index";
 import React, { useState, useEffect } from "react";
 import { LineChart } from "@/components/Chart/LineChart";
 import { getPregnancyDataById, getCheckupDataById } from "@/api/data";
-import { CustomModal } from "@/components/CUstomModal";
-import {
-  MapPinIcon,
-  ArrowLeftIcon,
-  UserCircleIcon,
-} from "@heroicons/react/24/outline";
+import { MapPinIcon, ArrowLeftIcon, UserCircleIcon, } from "@heroicons/react/24/outline";
 
 import { Link } from "react-router-dom";
-// import moment from "moment-with-locales-es6";
-// moment.locale("id");
+import Loader from "@/components/Loader";
 
 export const Statistik = ({ data }) => {
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
   const [pregnancyData, setPregnancyData] = useState(null);
   const [checkupData, setCheckupListData] = useState(null);
-  let pregnancyAge = 0;
-  let lastCheckup = 0;
-  let jarakHinggaKelahiran = 0;
-  console.log(data);
+
+  const pregnancyAge = 10;
+  const lastCheckup = 20;
+  const jarakHinggaKelahiran = 20;
 
   useEffect(() => {
     getPregnancyDataById(id, setPregnancyData);
 
     getCheckupDataById(id, setCheckupListData);
   }, [id]);
-  if (pregnancyData !== null) {
-    // pregnancyAge = moment(
-    //   pregnancyData?.hari_pertama_haid_terakhir
-    //     ? pregnancyData?.hari_pertama_haid_terakhir
-    //     : new Date(),
-    //   "YYYY-MM-DD"
-    // )
-    //   .fromNow()
-    //   .split(" ")
-    //   .splice(0, 2)
-    //   .join(" ");
-    pregnancyAge = 10;
-    // lastCheckup = moment(
-    //   pregnancyData?.pemeriksaan_terakhir
-    //     ? pregnancyData?.pemeriksaan_terakhir.tanggal_pemeriksaan
-    //     : new Date()
-    // )
-    //   .fromNow()
-    //   .split(" ")
-    //   .splice(0, 2)
-    //   .join(" ");
-    lastCheckup = 20;
 
-    //   jarakHinggaKelahiran = moment(
-    //     pregnancyData?.estimasi_tanggal_kelahiran
-    //       ? pregnancyData?.estimasi_tanggal_kelahiran
-    //       : new Date()
-    //   ).fromNow();
-    // }
-    jarakHinggaKelahiran = 20;
-  }
-  console.log(checkupData);
-  if (!pregnancyData || !checkupData) {
-    return <span>loading...</span>;
-  }
+  if (!pregnancyData || !checkupData) <Loader />
+  
   return (
     <>
       {pregnancyData && checkupData ? (
@@ -87,9 +49,7 @@ export const Statistik = ({ data }) => {
                 </div>
               </nav>
               <hr />
-              {/* 
-patient profile start
-*/}
+              {/* patient profile start*/}
               <h1 className="text-lg font-bold text-center">
                 Pemeriksaan pada{" "}
                 {showFormattedDate(
