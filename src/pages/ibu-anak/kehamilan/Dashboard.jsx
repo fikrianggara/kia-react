@@ -4,6 +4,7 @@ import { showFormattedDate } from "@/utils";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { ShareData } from "@/components/ibu-anak/ShareData";
+import { CheckBadgeIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { UserCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline"
 import { PregnancySelection } from "@/components/ibu-anak/PregnancySelection";
 import { getPregnancyDataByUserId, getCheckUpListDataByPatientId, } from "@/api/data";
@@ -18,45 +19,11 @@ export const Dashboard = ({ data }) => {
 
   const [checkupListData, setCheckupListData] = useState(null);
 
-  let pregnancyAge = 0;
-
-  let lastCheckup = 0;
-
-  let jarakHinggaKelahiran = 0;
-
   useEffect(() => {
     getPregnancyDataByUserId(id, setPregnancyData);
 
     getCheckUpListDataByPatientId(id, setCheckupListData);
   }, [id]);
-
-  // if (pregnancyData !== null) {
-  //   pregnancyAge = moment(
-  //     pregnancyData[0]?.hari_pertama_haid_terakhir
-  //       ? pregnancyData[0]?.hari_pertama_haid_terakhir
-  //       : new Date(),
-  //     "YYYY-MM-DD"
-  //   )
-  //     .fromNow()
-  //     .split(" ")
-  //     .splice(0, 2)
-  //     .join(" ");
-  //   lastCheckup = moment(
-  //     pregnancyData[0]?.pemeriksaan_terakhir
-  //       ? pregnancyData[0]?.pemeriksaan_terakhir.tanggal_pemeriksaan
-  //       : new Date()
-  //   )
-  //     .fromNow()
-  //     .split(" ")
-  //     .splice(0, 2)
-  //     .join(" ");
-
-  //   jarakHinggaKelahiran = moment(
-  //     pregnancyData[0]?.estimasi_tanggal_kelahiran
-  //       ? pregnancyData[0]?.estimasi_tanggal_kelahiran
-  //       : new Date()
-  //   ).fromNow();
-  // }
 
   if (!pregnancyData || !checkupListData) return <Loader />
 
@@ -75,7 +42,7 @@ export const Dashboard = ({ data }) => {
                   </div>
 
                   <div className="flex text-xs items-center">
-                    {/* <LocationOn /> */}
+                    <MapPinIcon className="w-6" />
                     <h1>{user.alamat}</h1>
                   </div>
                 </div>
@@ -112,17 +79,17 @@ export const Dashboard = ({ data }) => {
 
             <div className="flex p-2 bg-gray-50 h-full w-full flex-col text-xs items-center justify-center rounded-lg text-center">
               <h2 className="text-black ">Usia Kandungan</h2>
-              <h3 className="text-sky-400 font-medium">{pregnancyAge}</h3>
+              <h3 className="text-sky-400 font-medium">8 Minggu</h3>
             </div>
             <div className="h-20 p-2 bg-gray-50 w-full rounded-lg flex flex-col text-xs items-center justify-center m-auto text-center">
               <h2 className="text-black ">Estimasi Kelahiran</h2>
               <h3 className="text-sky-400 font-medium">
-                {jarakHinggaKelahiran}
+                7 Bulan
               </h3>
             </div>
             <div className="h-20 p-2 bg-gray-50 w-full rounded-lg flex flex-col text-xs items-center justify-center m-auto text-center">
               <h2 className="text-black text-xs ">Check-up Terakhir</h2>
-              <h3 className="text-sky-400 font-medium">{lastCheckup} lalu</h3>
+              <h3 className="text-sky-400 font-medium">5 hari yang lalu</h3>
             </div>
             <div className="h-20 p-2 bg-gray-50 w-full rounded-lg flex flex-col text-xs items-center justify-center m-auto text-center">
               <h2 className="text-black text-xs ">Check-up Berikutnya</h2>
@@ -132,20 +99,19 @@ export const Dashboard = ({ data }) => {
             </div>
           </div>
           <div className="flex justify-between">
-            <Link
-              to="/ibu-anak"
-              className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
-            >
-              <ArrowLeftIcon />
-              <span>Kembali</span>
-            </Link>
             <div className="flex justify-end space-x-2">
-              <Link
-                to={`/ibu-anak/kehamilan/statistik/${pregnancyData[0].id}`}
-                className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
-              >
-                <button className=" bg-sky-50 text-xs flex justify-evenly items-center text-sky-500 rounded-lg p-1 px-3">
+              <Link to="/ibu-anak" className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg">
+                <button className="bg-opacity-0 text-xs flex justify-evenly items-center space-x-2 rounded-md p-1 px-3 text-white">
+                  <ArrowLeftIcon className="w-4" />
+                  <span className="ml-2">Kembali</span>
+                </button>
+              </Link>
+            </div>
+            <div className="flex justify-end space-x-2">
+              <Link to={`/ibu-anak/kehamilan/statistik/${pregnancyData[0].id}`} className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg">
+                <button className=" bg-sky-50 text-xs flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3">
                   {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
+                  <CheckBadgeIcon className="w-4 mr-2" />
                   Selengkapnya
                 </button>
               </Link>
@@ -175,11 +141,7 @@ export const Dashboard = ({ data }) => {
                 </div>
                 <div className="mt-3 sm:pr-8 -ml-[50%]">
                   <span className="text-sky-400 block mb-2 font-normal leading-none  dark:text-gray-500">
-                    {
-                      showFormattedDate(
-                        pregnancyData[0]?.hari_pertama_haid_terakhir
-                      ).split(",")[1]
-                    }
+                    {showFormattedDate(pregnancyData[0]?.hari_pertama_haid_terakhir).split(",")[1]}
                   </span>
                 </div>
               </li>
