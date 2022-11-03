@@ -1,11 +1,10 @@
 import { MaternalSelection } from "@/components/ibu-anak/MaternalSelection";
 import { showFormattedDate } from "@/utils";
-import { UserCircleIcon } from "@heroicons/react/24/outline"
-
-import akta from "@/assets/ibu-anak/akta.png"
+import { UserCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import akta from "@/assets/ibu-anak/akta.png";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-
 
 const dummyData = [
   {
@@ -14,46 +13,46 @@ const dummyData = [
     details: [
       {
         key: "Lokasi",
-        value: "Puskesmas Bidara Cina"
+        value: "Puskesmas Bidara Cina",
       },
       {
         key: "Tanggal",
-        value: "15 Juli 2018"
+        value: "15 Juli 2018",
       },
       {
         key: "Jam",
-        value: "21.00"
+        value: "21.00",
       },
       {
         key: "Jenis Kelamin",
-        value: "Laki-Laki"
+        value: "Laki-Laki",
       },
       {
         key: "Berat Bay",
-        value: "3 kg"
+        value: "3 kg",
       },
       {
         key: "Panjang Bayi",
-        value: "30 cm"
+        value: "30 cm",
       },
       {
         key: "Menangis",
-        value: "Ya"
+        value: "Ya",
       },
       {
         key: "Kondisi Bay",
-        value: "Hidup"
+        value: "Hidup",
       },
       {
         key: "Kondisi Ibu",
-        value: "Hidup"
-      }
+        value: "Hidup",
+      },
     ],
     akta: {
       completed: true,
       name: "Al Ghiffari",
-      tempat_lahir: "Kampung Melayu"
-    }
+      tempat_lahir: "Kampung Melayu",
+    },
   },
   {
     kelahiran_id: 2,
@@ -61,53 +60,53 @@ const dummyData = [
     details: [
       {
         key: "Lokasi",
-        value: "Puskesmas Kampung Melayu"
+        value: "Puskesmas Kampung Melayu",
       },
       {
         key: "Tanggal",
-        value: "02 September 2022"
+        value: "02 September 2022",
       },
       {
         key: "Jam",
-        value: "15.00"
+        value: "15.00",
       },
       {
         key: "Jenis Kelamin",
-        value: "Laki-Laki"
+        value: "Laki-Laki",
       },
       {
         key: "Berat Bay",
-        value: "2.7 kg"
+        value: "2.7 kg",
       },
       {
         key: "Panjang Bayi",
-        value: "28 cm"
+        value: "28 cm",
       },
       {
         key: "Menangis",
-        value: "Ya"
+        value: "Ya",
       },
       {
         key: "Kondisi Bay",
-        value: "Hidup"
+        value: "Hidup",
       },
       {
         key: "Kondisi Ibu",
-        value: "Hidup"
-      }
+        value: "Hidup",
+      },
     ],
     akta: {
       completed: false,
       name: "",
-      tempat_lahir: ""
-    }
-  }
-]
+      tempat_lahir: "",
+    },
+  },
+];
 
 export const PersalinanDashboard = ({ data: userData }) => {
   const user = userData[0] ? userData[0] : null;
 
-  const [data, setData] = useState(dummyData[0])
+  const [data, setData] = useState(dummyData[0]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -124,15 +123,30 @@ export const PersalinanDashboard = ({ data: userData }) => {
                 </div>
               </div>
               <div className="flex space-x-1">
-                <MaternalSelection selection={data} data={dummyData} onSelect={(item) => setData(item)} />
+                <MaternalSelection
+                  selection={data}
+                  data={dummyData}
+                  onSelect={(item) => setData(item)}
+                />
               </div>
             </div>
           </div>
         </nav>
       </div>
       <div className="m-2 mt-4 shadow-md bg-gradient-to-tr from-red-500 to-sky-500  h-48 border rounded-lg flex justify-center items-center text-white">
-        <div className="font-bold text-2xl">🎇 Selamat Bayi Anda Telah Lahir 🎇</div>
+        <div className="font-bold text-lg md:first-line:text-2xl">
+          🎇 Selamat Bayi Anda Telah Lahir 🎇
+        </div>
       </div>
+      <Link
+        to="/ibu-anak"
+        className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg"
+      >
+        <button className="bg-opacity-0 flex justify-evenly items-center space-x-2 rounded-md p-1 px-3 text-gray-600">
+          <ArrowLeftIcon className="w-4" />
+          <span className="ml-2">Kembali</span>
+        </button>
+      </Link>
       <div className="m-2 mt-4 bg-white border rounded-lg">
         <div className="border rounded-lg p-4 space-y-2">
           <div className="flex text-sky-800 font-medium items-center justify-between">
@@ -148,12 +162,13 @@ export const PersalinanDashboard = ({ data: userData }) => {
             <div className="space-y-2 text-gray-600">
               <div className="flex">
                 <table className="m-auto text-sm text-left w-full border border-gray-200">
-
                   <tbody>
-                    {data.details.map(item => (
+                    {data.details.map((item) => (
                       <tr className="border" key={item.key}>
                         <td className="p-2">{item.key}</td>
-                        <td className="w-2/4 p-2 text-green-500">{item.value}</td>
+                        <td className="w-2/4 p-2 text-green-500">
+                          {item.value}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -170,7 +185,8 @@ export const PersalinanDashboard = ({ data: userData }) => {
         </div>
         <div className="p-2 bg-sky-50 rounded text-sm mb-4">
           <p className="mb-3 font-normal text-sky-500 dark:text-gray-400">
-            Pengajuan akta kelahiran bekerja sama dengan dukcapil. Lengkapi beberapa data berikut untuk mencetak akta kelahiran anak
+            Pengajuan akta kelahiran bekerja sama dengan dukcapil. Lengkapi
+            beberapa data berikut untuk mencetak akta kelahiran anak
           </p>
         </div>
         {data.akta.completed && (
@@ -179,11 +195,18 @@ export const PersalinanDashboard = ({ data: userData }) => {
               Akta kelahiran telah terbit
             </p>
             <div>
-              <button className="p-2 bg-green-200 rounded-md text-gray-600" onClick={() => setIsOpen(true)}>
+              <button
+                className="p-2 bg-green-200 rounded-md text-gray-600"
+                onClick={() => setIsOpen(true)}
+              >
                 Buka
               </button>
               <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
+                <Dialog
+                  as="div"
+                  className="relative z-10"
+                  onClose={() => setIsOpen(false)}
+                >
                   <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -277,5 +300,5 @@ export const PersalinanDashboard = ({ data: userData }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

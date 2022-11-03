@@ -136,12 +136,12 @@ export const Dashboard = ({ data }) => {
           {/* back and update data button end */}
         </div>
         {/* timeline */}
-        <div className="p-4 bg-gray-50 rounded-lg m-4">
+        <div className="p-3 bg-gray-50 rounded-lg m-4">
           <h1 className="text-black font-medium text-lg">Timeline Kehamilan</h1>
 
           <div className="w-full text-xs p-4 ">
             {/* timeline graph start */}
-            <ol className="items-center grid grid-cols-5 p-2">
+            <ol className="items-center grid grid-cols-5 p-2 gap-3 ">
               <li className="mb-6 sm:mb-0 flex-col text-center justify-center items-center">
                 <div className="flex items-center text-center justify-center">
                   <div className="flex z-10 justify-center items-center w-6 h-6 bg-sky-200 rounded-full ring-2 ring-sky-400 dark:bg-sky-900  dark:ring-gray-900 shrink-0">
@@ -166,7 +166,7 @@ export const Dashboard = ({ data }) => {
                   </div>
                   <div className="flex w-full bg-sky-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
-                <div className="mt-3 -ml-[20%]">
+                <div className="mt-3 sm:pr-8 -ml-[20%]">
                   <span className="block mb-2 font-normal leading-none text-sky-400 dark:text-gray-500">
                     Trimester 1
                   </span>
@@ -204,8 +204,8 @@ export const Dashboard = ({ data }) => {
                     {/* <MonitorHeart fontSize="xsmall" className="text-gray-600" /> */}
                   </div>
                 </div>
-                <div className="mt-3 -ml-[20%]">
-                  <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">
+                <div className="mt-3 sm:pr-8 -ml-[20%] text-clip">
+                  <span className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500 ">
                     {
                       showFormattedDate(
                         pregnancyData[0]?.estimasi_tanggal_kelahiran
