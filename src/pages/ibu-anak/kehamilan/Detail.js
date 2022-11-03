@@ -110,7 +110,32 @@ export const PemeriksaanUSG = ({ usg }) => {
               </Link>
             </div>
           </div>
+          <h2>Pemeriksaan</h2>
           <ul className="text-sm mt-4 flex flex-wrap">
+            <table className="text-sm m-auto">
+              <thead>
+                <tr className="border p-2">
+                  <th key="usg-nama" className="p-2">
+                    Nama
+                  </th>
+                  <th key="usg-nilai" className="p-2">
+                    Nilai
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-400">
+                {usg.pemeriksaan.map((item) => {
+                  return (
+                    <tr key={item.nama} className="border p-2">
+                      <td className="p-2">{item.nama}</td>
+                      <td className="p-2">
+                        {`${item.nilai} ${item.satuan ? item.satuan : ""}`}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
             {usg.pemeriksaan.map((item) => (
               <li
                 key={item.nama}
@@ -149,8 +174,8 @@ export const PemeriksaanFisik = ({ fisik }) => {
         </CustomModal>
       }
     >
-      <div>
-        <div className="flex justify-between p-2">
+      <div className="p-2 space-y-2">
+        <div className="flex justify-between ">
           <span>Keadaan Umum</span>
           <span
             className={`text-green-500 font-bold ${
@@ -160,24 +185,26 @@ export const PemeriksaanFisik = ({ fisik }) => {
             {fisik.keadaan_umum}
           </span>
         </div>
-        <div>
+        <div className="text-regular">
           <h2>Pemeriksaan</h2>
-          <div className="flex">
-            <table className="text-sm m-auto w-3/4 bg-blue-200 rounded-lg border">
+          <div className="flex p-2">
+            <table className="text-sm m-auto w-3/4">
               <thead>
-                <tr>
+                <tr className="border p-2">
                   {Object.keys(fisik.pemeriksaan[0]).map((kolom) => (
-                    <th>{kolom}</th>
+                    <th key={kolom} className="p-2">
+                      {kolom}
+                    </th>
                   ))}
                 </tr>
               </thead>
               <tbody className="text-gray-400">
                 {fisik.pemeriksaan.map((item) => {
                   return (
-                    <tr key={item.nama}>
-                      <td>{item.nama}</td>
+                    <tr key={item.nama} className="border p-2">
+                      <td className="p-2">{item.nama}</td>
                       <td
-                        className={`text-green-500  ${
+                        className={`text-green-500 p-2 ${
                           item.keadaan !== "Normal" ? "text-amber-600" : ""
                         }`}
                       >
@@ -189,8 +216,6 @@ export const PemeriksaanFisik = ({ fisik }) => {
               </tbody>
             </table>
           </div>
-
-          {JSON.stringify(fisik)}
         </div>
       </div>
     </PemeriksaanCard>
@@ -221,7 +246,8 @@ export const PemeriksaanSkriningPreeklampsia = ({ skriningPreeklampsia }) => {
       }
     >
       <div className="flex justify-between p-2">
-        {JSON.stringify(skriningPreeklampsia)}
+        {/* {JSON.stringify(skriningPreeklampsia)} */}
+        dummy data
       </div>
     </PemeriksaanCard>
   );
@@ -251,7 +277,19 @@ export const PemeriksaanUkurLingkarLenganAtas = ({ ukurLingkarLenganAtas }) => {
       }
     >
       <div className="flex justify-between p-2">
-        {JSON.stringify(ukurLingkarLenganAtas)}
+        <div className="flex space-x-4">
+          <span>
+            {ukurLingkarLenganAtas.nilai + " " + ukurLingkarLenganAtas.satuan}
+          </span>
+        </div>
+        {console.log(ukurLingkarLenganAtas)}
+        <h4
+          className={`text-green-500 font-bold ${
+            ukurLingkarLenganAtas.status !== "Normal" ? "text-amber-600" : ""
+          }`}
+        >
+          {ukurLingkarLenganAtas.status}
+        </h4>
       </div>
     </PemeriksaanCard>
   );
@@ -480,10 +518,10 @@ export const Detail = ({ data }) => {
             />
             {/* end list detail pemeriksaan berdasarkan pemeriksaan yang dilakukan */}
           </div>
-          <ToTopButton reference="#header"></ToTopButton>
         </main>
         {/* main end */}
         <footer></footer>
+        <ToTopButton reference="#header"></ToTopButton>
       </div>
     </>
   );
