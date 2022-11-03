@@ -10,7 +10,7 @@ export const UpdateTTD = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className=" bg-sky-50 flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3 text-sm"
+        className=" bg-sky-50 flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3 text-xs"
       >
         {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
         <PlusIcon className="w-4 mr-2" />
