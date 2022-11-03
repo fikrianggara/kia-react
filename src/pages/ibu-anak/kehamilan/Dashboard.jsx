@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { ShareData } from "@/components/ibu-anak/ShareData";
 import { CheckBadgeIcon, MapPinIcon } from "@heroicons/react/24/solid";
-import { UserCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon, ArrowLeftIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 import { PregnancySelection } from "@/components/ibu-anak/PregnancySelection";
 import {
   getPregnancyDataByUserId,
@@ -214,10 +214,14 @@ export const Dashboard = ({ data }) => {
             <h3 className="w-64 text-start text-lg font-bold align-middle flex">
               {/* <Warning className="mr-2" /> Informasi Imunisasi */}
             </h3>
-            <p className="flex text-sm justify-between pt-4">
-              Imunisasi Polio tersedia di Posyandu ABC pada tanggal{" "}
-              {new Date().toLocaleDateString()}
-            </p>
+            <div className="flex items-start space-x-2">
+              <InformationCircleIcon className="w-7" />
+              <p className="flex text-sm justify-between flex-1">
+                Puskesma Bidara Cina mengadakan kelas Ibu pada tanggal{" "}
+                {new Date().toLocaleDateString()}, membahas tentang kehamilan, persalinan, perawatan masa nifas, perawatan
+                bayi baru lahir, dan pemenuhan gizi
+              </p>
+            </div>
           </div>
         </div>
       </div>
