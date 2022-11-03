@@ -16,7 +16,11 @@ export const ShareData = () => {
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => setIsOpen(false)}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -43,7 +47,10 @@ export const ShareData = () => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-md bg-white p-2 text-left align-middle shadow-xl transition-all">
                   <div className="mt-2 px-2 pb-2">
                     <div>
-                      <label htmlFor="share" className="block text-md font-bold text-gray-700">
+                      <label
+                        htmlFor="share"
+                        className="block text-md font-bold text-gray-700"
+                      >
                         Bagikan Informasi Kehamilan
                       </label>
                     </div>
@@ -57,33 +64,43 @@ export const ShareData = () => {
                         />
                       </div>
                       <div>
-                        <div className="font-bold mb-3 text-gray-700">Siapa saja yang bisa akses</div>
+                        <div className="font-bold mb-3 text-gray-700">
+                          Siapa saja yang bisa akses
+                        </div>
                         <div>
-                          <div class="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
+                          <div className="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
                             <UserCircleIcon className="h-10 w-10 mr-2 text-sky-500" />
-                            <div class="flex-1 text-left mt-6 sm:mt-0">
-                              <div className="text-sm font-bold text-gray-600">John Doe</div>
+                            <div className="flex-1 text-left mt-6 sm:mt-0">
+                              <div className="text-sm font-bold text-gray-600">
+                                John Doe
+                              </div>
                               <div className="text-xs">1804030402870001</div>
                             </div>
                           </div>
-                          <div class="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
+                          <div className="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
                             <UserCircleIcon className="h-10 w-10 mr-2 text-sky-500" />
-                            <div class="flex-1 text-left mt-6 sm:mt-0">
-                              <div className="text-sm font-bold text-gray-600">Jane Doe</div>
+                            <div className="flex-1 text-left mt-6 sm:mt-0">
+                              <div className="text-sm font-bold text-gray-600">
+                                Jane Doe
+                              </div>
                               <div className="text-xs">1804034401890002</div>
                             </div>
                           </div>
-                          <div class="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
+                          <div className="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
                             <UserCircleIcon className="h-10 w-10 mr-2 text-sky-500" />
-                            <div class="flex-1 text-left mt-6 sm:mt-0">
-                              <div className="text-sm font-bold text-gray-600">John Kneddy</div>
+                            <div className="flex-1 text-left mt-6 sm:mt-0">
+                              <div className="text-sm font-bold text-gray-600">
+                                John Kneddy
+                              </div>
                               <div className="text-xs">1804030402870001</div>
                             </div>
                           </div>
-                          <div class="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
+                          <div className="flex items-center mx-auto p-3 cursor-pointer rounded-md mb-2 border-gray-200 flex-row hover:bg-gray-200">
                             <UserCircleIcon className="h-10 w-10 mr-2 text-sky-500" />
-                            <div class="flex-1 text-left mt-6 sm:mt-0">
-                              <div className="text-sm font-bold text-gray-600">John Doe</div>
+                            <div className="flex-1 text-left mt-6 sm:mt-0">
+                              <div className="text-sm font-bold text-gray-600">
+                                John Doe
+                              </div>
                               <div className="text-xs">1804030402870001</div>
                             </div>
                           </div>
@@ -91,7 +108,10 @@ export const ShareData = () => {
                       </div>
                     </div>
                     <div className="flex justify-between">
-                      <button onClick={() => setIsOpen(false)} className="bg-red-500 hover:bg-red-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md">
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="bg-red-500 hover:bg-red-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md"
+                      >
                         Batal
                       </button>
                       <button className="bg-sky-500 hover:bg-sky-400 transition-all duration-150 text-white font-bold px-5 py-2 rounded-md">

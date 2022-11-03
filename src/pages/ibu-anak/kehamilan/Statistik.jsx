@@ -7,8 +7,10 @@ import {
   MapPinIcon,
   ArrowLeftIcon,
   UserCircleIcon,
+  PlusIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
-
+import { AddBodyWeight } from "@/components/ibu-anak/AddBodyWeight";
 import { CalendarCustom } from "@/components/Chart/Calendar";
 import { Link } from "react-router-dom";
 import Loader from "@/components/Loader";
@@ -16,12 +18,9 @@ import Loader from "@/components/Loader";
 export const Statistik = ({ data }) => {
   const { id } = useParams();
   const user = data[0] ? data[0] : null;
+  const [isConfirmed, setIsConfirmed] = useState(false);
   const [pregnancyData, setPregnancyData] = useState(null);
   const [checkupData, setCheckupListData] = useState(null);
-
-  const pregnancyAge = 10;
-  const lastCheckup = 20;
-  const jarakHinggaKelahiran = 20;
 
   useEffect(() => {
     getPregnancyDataById(id, setPregnancyData);
@@ -94,7 +93,7 @@ export const Statistik = ({ data }) => {
 
               {/* patient profile end */}
               {/* back and update data button */}
-              <div>
+              <div className="">
                 <div className="flex justify-between">
                   <Link
                     to={`/ibu-anak/kehamilan/${user.id}`}
@@ -103,6 +102,26 @@ export const Statistik = ({ data }) => {
                     <ArrowLeftIcon className="w-4" />
                     <span>Kembali</span>
                   </Link>
+                  <AddBodyWeight />
+                  {isConfirmed ? (
+                    <button
+                      disabled
+                      className=" bg-green-50 flex py-2 justify-evenly items-center text-green-600 rounded-md p-1 px-3 text-sm"
+                    >
+                      {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
+                      <CheckCircleIcon className="w-4 mr-2 text-green-500" />
+                      Dikonfirmasi
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => setIsConfirmed(true)}
+                      className=" bg-sky-50 flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3 text-sm"
+                    >
+                      {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
+                      <PlusIcon className="w-4 mr-2" />
+                      Konfirmasi TTD
+                    </button>
+                  )}
                 </div>
               </div>
               {/* back and update data button end */}
