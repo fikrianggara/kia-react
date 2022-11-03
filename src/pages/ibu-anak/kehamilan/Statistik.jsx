@@ -110,7 +110,7 @@ export const Statistik = ({ data }) => {
                     >
                       {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
                       <CheckCircleIcon className="w-4 mr-2 text-green-500" />
-                      Dikonfirmasi
+                      TTD Dikonfirmasi
                     </button>
                   ) : (
                     <button

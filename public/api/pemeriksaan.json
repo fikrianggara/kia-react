@@ -319,7 +319,7 @@
     "id_kehamilan": "123",
     "id_ibu": "001",
     "tipe_pemeriksaan": "biasa",
-    "tanggal_pemeriksaan": "2022-08-01 08:00:00",
+    "tanggal_pemeriksaan": "2022-06-24 08:00:00",
     "minggu_pemeriksaan": 4,
     "urutan_pemeriksaan": 1,
     "trimester": 1,
@@ -328,7 +328,7 @@
     "kondisi_ibu": "Baik",
     "kondisi_janin": "Baik",
     "kesimpulan": "Kondisi Ibu dan Janin sehat",
-    "rekomendasi": "Perbanyak makan sayur dan jangan lupa istirahat yang cukup",
+    "rekomendasi": "Rutin minum tablet tambah darah",
     "tempat": {
       "nama": "Posyandu Anak Sehat",
       "alamat": "Jalan Pulau Seribu, Jakarta Timur, Jakarta"
@@ -634,7 +634,7 @@
     "id_kehamilan": "123",
     "id_ibu": "001",
     "tipe_pemeriksaan": "biasa",
-    "tanggal_pemeriksaan": "2022-08-01 08:00:00",
+    "tanggal_pemeriksaan": "2022-05-15 08:00:00",
     "minggu_pemeriksaan": 4,
     "urutan_pemeriksaan": 1,
     "trimester": 1,
@@ -643,7 +643,7 @@
     "kondisi_ibu": "Baik",
     "kondisi_janin": "Baik",
     "kesimpulan": "Kondisi Ibu dan Janin sehat",
-    "rekomendasi": "Perbanyak makan sayur dan jangan lupa istirahat yang cukup",
+    "rekomendasi": "Perbanyak minum air putih dan makan buah",
     "tempat": {
       "nama": "Posyandu Anak Sehat",
       "alamat": "Jalan Pulau Seribu, Jakarta Timur, Jakarta"
@@ -949,7 +949,7 @@
     "id_kehamilan": "123",
     "id_ibu": "001",
     "tipe_pemeriksaan": "biasa",
-    "tanggal_pemeriksaan": "2022-08-01 08:00:00",
+    "tanggal_pemeriksaan": "2022-04-08 08:00:00",
     "minggu_pemeriksaan": 4,
     "urutan_pemeriksaan": 1,
     "trimester": 1,
@@ -958,7 +958,7 @@
     "kondisi_ibu": "Baik",
     "kondisi_janin": "Baik",
     "kesimpulan": "Kondisi Ibu dan Janin sehat",
-    "rekomendasi": "Perbanyak makan sayur dan jangan lupa istirahat yang cukup",
+    "rekomendasi": "Kurangi konsumsi makanan manis",
     "tempat": {
       "nama": "Posyandu Anak Sehat",
       "alamat": "Jalan Pulau Seribu, Jakarta Timur, Jakarta"
