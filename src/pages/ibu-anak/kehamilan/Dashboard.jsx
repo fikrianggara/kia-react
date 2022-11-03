@@ -52,7 +52,7 @@ export const Dashboard = ({ data }) => {
                     <h1>{user.alamat}</h1>
                   </div>
                 </div>
-                <div className="flex space-x-1">
+                <div className="flex space-x-1 items-start">
                   <PregnancySelection
                     preganciesData={[
                       { kehamilan_id: 1, kehamilan_ke: 1 },
