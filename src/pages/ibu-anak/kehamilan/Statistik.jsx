@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getPregnancyDataById, getCheckupDataById } from "../../../api/data";
-import { showFormattedDate } from "../../../utils/index";
+import { showFormattedDate } from "@/utils/index";
+import React, { useState, useEffect } from "react";
+import { LineChart } from "@/components/Chart/LineChart";
+import { getPregnancyDataById, getCheckupDataById } from "@/api/data";
 
-import {
-  AccountCircle,
-  MonitorHeart,
-  ArrowBackOutlined,
-  SecurityUpdateGoodOutlined,
-  LocationOn,
-  CalendarToday,
-  HealthAndSafety,
-  AddLocation,
-  CheckCircle,
-  HelpOutline,
-  Download,
-} from "@mui/icons-material";
-import { LineChart } from "../../../components/Chart/LineChart";
+import { AccountCircle, ArrowBackOutlined, LocationOn, } from "@mui/icons-material";
 
 import { Modal, Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";

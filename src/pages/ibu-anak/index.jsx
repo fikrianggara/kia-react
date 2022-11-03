@@ -1,18 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MenuItem } from "../../components/menu/Item";
-import {
-  ArrowBackOutlined,
-  PregnantWomanOutlined,
-  BabyChangingStationOutlined,
-  AirlineSeatReclineExtraOutlined,
-} from "@mui/icons-material";
+import { MenuItem } from "@/components/menu/Item";
+import { InfoCard } from "@/components/ibu-anak/InfoCard";
+import { UserIcon, ArrowLeftIcon } from "@heroicons/react/24/outline"
 
-import IbuAnak1 from "../../assets/ibu-anak/1.png";
-import IbuAnak2 from "../../assets/ibu-anak/2.png";
-import IbuAnak3 from "../../assets/ibu-anak/3.png";
-import IbuAnak4 from "../../assets/ibu-anak/4.png";
-import { InfoCard } from "../../components/ibu-anak/InfoCard";
+// static images
+import IbuAnak1 from "@/assets/ibu-anak/1.png";
+import IbuAnak2 from "@/assets/ibu-anak/2.png";
+import IbuAnak3 from "@/assets/ibu-anak/3.png";
+import IbuAnak4 from "@/assets/ibu-anak/4.png";
+
 
 export const MenuIbuAnak = ({ data }) => {
   const user = data[0] ? data[0] : null;
@@ -25,11 +22,8 @@ export const MenuIbuAnak = ({ data }) => {
           kami membantu anda selama periode kehamilan agar kondisi janin dan ibu
           selalu sehat
         </h2>
-        <Link
-          to="/"
-          className="flex items-center space-x-2 active:bg-sky-700 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg text-sky-700"
-        >
-          <ArrowBackOutlined></ArrowBackOutlined>
+        <Link to="/" className="flex items-center space-x-2 active:bg-sky-200 hover:bg-sky-100 w-fit p-2 active:opacity-75 pr-4 text-sm rounded-lg text-sky-700">
+          <ArrowLeftIcon className="w-6" />
           <span>Kembali</span>
         </Link>
       </header>
@@ -38,26 +32,18 @@ export const MenuIbuAnak = ({ data }) => {
         <section className="grid grid-cols-3 gap-6 m-auto h-fit p-4 ">
           <Link to={`/ibu-anak/kehamilan/${user?.id ? user.id : "menu"}`}>
             <MenuItem title="Kehamilan" className="bg-amber-400 animate-pulse">
-              <PregnantWomanOutlined
-                fontSize="large"
-                className="w-8 h-8 md:w-16 md:h-16"
-              />
+              <UserIcon className="w-8 h-8 md:w-16 md:h-16" />
             </MenuItem>
           </Link>
           <Link to="/ibu-anak">
             <MenuItem title="Persalinan" className="bg-red-500">
-              <AirlineSeatReclineExtraOutlined
-                fontSize="large"
-                className="w-8 h-8 md:w-16 md:h-16"
-              />
+              <UserIcon className="w-8 h-8 md:w-16 md:h-16" />
+
             </MenuItem>
           </Link>
           <Link to="/ibu-anak">
             <MenuItem title="Pasca Kelahiran" className="bg-sky-600">
-              <BabyChangingStationOutlined
-                fontSize="large"
-                className="w-8 h-8 md:w-16 md:h-16"
-              />
+              <UserIcon className="w-8 h-8 md:w-16 md:h-16" />
             </MenuItem>
           </Link>
         </section>
