@@ -30,12 +30,12 @@ export const MenuIbuAnak = ({ data }) => {
 
       <main className="mt-4 bg-white h-fit space-y-10 flex">
         <section className="grid grid-cols-3 gap-6 m-auto h-fit p-4 ">
-          <Link to={`/ibu-anak/kehamilan/${user?.id ? user.id : "menu"}`}>
+          <Link to={`/ibu-anak/kehamilan/${user?.id ? user.id : ""}`}>
             <MenuItem title="Kehamilan" className="bg-amber-400 animate-pulse">
               <UserIcon className="w-8 h-8 md:w-16 md:h-16" />
             </MenuItem>
           </Link>
-          <Link to="/ibu-anak">
+          <Link to={`/ibu-anak/persalinan/${user?.id ? user.id : ""}`}>
             <MenuItem title="Persalinan" className="bg-red-500">
               <UserIcon className="w-8 h-8 md:w-16 md:h-16" />
 
