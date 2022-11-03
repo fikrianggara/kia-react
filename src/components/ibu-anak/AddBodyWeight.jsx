@@ -10,7 +10,7 @@ export const AddBodyWeight = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className=" bg-sky-50 flex py-1 sm:py-2 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs"
+        className=" bg-sky-50 flex py-1 sm:py-2 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs sm:text-sm"
       >
         {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
         <PlusIcon className="w-4 mr-2" />
