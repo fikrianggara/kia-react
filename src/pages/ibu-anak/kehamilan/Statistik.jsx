@@ -106,7 +106,7 @@ export const Statistik = ({ data }) => {
                   {isConfirmed ? (
                     <button
                       disabled
-                      className=" bg-green-50 flex py-2 justify-evenly items-center text-green-600 rounded-md p-1 px-3 text-sm"
+                      className=" bg-green-50 flex py-1 sm:py-2 justify-evenly items-center text-green-500 rounded-md px-2 sm:px-3 text-xs"
                     >
                       {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
                       <CheckCircleIcon className="w-4 mr-2 text-green-500" />
@@ -115,7 +115,7 @@ export const Statistik = ({ data }) => {
                   ) : (
                     <button
                       onClick={(e) => setIsConfirmed(true)}
-                      className=" bg-sky-50 flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3 text-sm"
+                      className=" bg-green-50 flex py-1 sm:py-2 justify-evenly items-center text-green-500 rounded-md px-2 sm:px-3 text-xs"
                     >
                       {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
                       <PlusIcon className="w-4 mr-2" />

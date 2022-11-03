@@ -10,11 +10,11 @@ export const AddBodyWeight = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className=" bg-sky-50 flex py-2 justify-evenly items-center text-sky-500 rounded-md p-1 px-3 text-xs"
+        className=" bg-sky-50 flex py-1 sm:py-2 justify-evenly items-center text-sky-500 rounded-md px-2 sm:px-3 text-xs"
       >
         {/* <SecurityUpdateGoodOutlined></SecurityUpdateGoodOutlined> */}
         <PlusIcon className="w-4 mr-2" />
-        data berat badan
+        berat badan
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
